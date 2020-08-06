@@ -1,0 +1,82 @@
+Note : The variables that are dynamic in the url are placed within these brackets {variable}
+
+
+===============================================================================================================================================================
+NOTE:
+
+entity_types that are availaible ::
+
+city,
+subzone,
+zone,
+landmark,
+metro, 
+group
+
+================================================================================================================================================================
+
+1. After User selects his location he will first see the collections of various trends, types of cuisines, types of dishes and many other things to do in that particular city.
+
+    REQUIRED PARAMETERS : city_id
+
+URL FOR THIS CALL
+
+https://developers.zomato.com/api/v2.1/collections?city_id={city_id}
+
+Data Schema of response:
+
+
+a). Each collection is an object which has
+    * collection_id = ID of the particular collection
+    * res_count = Number of restaurants that fall under the collection
+    * image_url = The theme image for the collection
+    * title = Title of the collection
+    * description = Description of the collection
+
+================================================================================================================================================================
+
+2. Clicking on collections and fetching all the restaurants inside a particular collection
+
+Required Parameters = entity_id and entity_type and collection_id
+
+URL for the call 
+
+
+https://developers.zomato.com/api/v2.1/search?entity_id={entity_id}&entity_type={entity_type}&collection_id={collection_id}
+
+
+Data Schema of response:
+
+Each restaurant object will have following scheme , 
+
+* res_id = restaurant id required to get the information about particular restaurant
+* name = Name of restaurant
+* location = this object has all location info, ADDRESS OF RESTAURANT,CITY,LAT&LONG for mapping the restaurant.
+* cuisines = This has the types of cuisines provided by the restaurant
+* timings = has the timings the restaurant is open 
+* thumb = has the picture for the restaurant theme
+* user_rating = this object is necesarry for us, To display rating, has no of votes and the rating out of 5
+* establishment = the type of the restaurant example : cafe, breweiries etc
+
+================================================================================================================================================================
+
+3. Clicking on card of a particular restaurant we will get the restaurant details the call would be 
+
+Required Parameters = res_id
+
+URL for the call
+
+https://developers.zomato.com/api/v2.1/restaurant?res_id={res_id}
+
+
+Data Schema of response
+
+* name = name of the restaurant
+* location = all the details including the address and lat and longitude of the restaurant reside in this object
+* cuisines = all types of cuisines offered by the restaurant
+* timings = the open timings of restaurant
+* highlights = this array has all facilities the restaurant has 
+* user_rating = ratings of restaurant related information
+* establishment = type of the restaurant
+* featured_image = image to use for the restaurant's page
+
