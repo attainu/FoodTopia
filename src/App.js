@@ -1,22 +1,18 @@
-import React, { Component } from 'react';
-import Navbar from './components/Navbar/Navbar.js'
-import Home from './pages/Home'
-import Footer from './components/Footer/Footer'
-
-
-
+import React, { Component } from "react";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Footer from "./components/Footer";
 
 class App extends Component {
-    render() {
-        return (
-            <div>
-                <Navbar />
-                <Home />
-                <Footer />
-            </div>
-        );
-    }
-
+  render() {
+    return (
+      <div>
+        <Navbar />
+        <Home />
+        <Footer />
+      </div>
+    );
+  }
 }
 
-export default App
+export default App;
