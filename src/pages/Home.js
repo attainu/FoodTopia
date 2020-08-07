@@ -1,9 +1,19 @@
-// import React, { Component } from 'react'
-// import SearchCity from '../components/SearchCity'
-
-// class HOME extends Components {
-
-// }
+import React, { Component } from 'react'
+import ImageAndWelcome from '../components/ImageAndWelcome';
 
 
-// export default HOME;
+class HOME extends Component {
+
+    render(){
+        return (
+            <React.Fragment>
+                <ImageAndWelcome />
+            </React.Fragment>    
+        )
+    }
+
+
+
+}
+
+export default HOME;
