@@ -17,9 +17,14 @@ const TopResCard = ({ details }) => {
         </div>
         <div className="toprescard-name-address">
           <p className="toprescard-res-name">{details.name}</p>
-          <p className="toprescard-res-name"></p>
-          <p className="toprescard-res-name"></p>
-          <p className="toprescard-res-name"></p>
+          <p className="toprescard-res-cuisines">
+            <span>Cuisines: </span>
+            {details.cuisines}
+          </p>
+          <p className="toprescard-res-address">
+            <span>Address: </span>
+            {details.location.address}
+          </p>
         </div>
       </div>
     </div>

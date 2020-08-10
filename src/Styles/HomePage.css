@@ -41,18 +41,35 @@ h1 {
   display: block;
 }
 
+.toprescard-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .toprescard {
-  width: 80%;
-  margin: auto;
+  width: 40%;
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   box-shadow: 0px 0px 2px coral;
   position: relative;
+}
+.toprescard-name-address {
+  padding: 10px;
+  word-wrap: wrap;
+  max-width: 300px;
+}
+.toprescard-res-name {
+  font-weight: bold;
+}
+.toprescard-name-address span {
+  font-weight: bold;
 }
 .toprescard-ratings-container {
   display: flex;
@@ -71,6 +88,14 @@ h1 {
   align-items: center;
   padding-bottom: 8px;
 }
+
+@media only screen and (max-width: 768px) {
+  .toprescard {
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+  }
+}
 @media only screen and (max-width: 600px) {
   h1 {
     font-size: 1rem;
@@ -78,8 +103,12 @@ h1 {
   .toprescard {
     justify-content: center;
     align-items: center;
+    width: 80%;
   }
   .toprescard-ratings-container {
     position: static;
+  }
+  .toprescard-name-address p {
+    text-align: center;
   }
 }

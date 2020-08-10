@@ -17,7 +17,7 @@ class MyNavbar extends Component {
   render() {
     return (
       <div>
-        <Navbar light expand="md" className="my-navbar">
+        <Navbar light expand="md" className="my-navbar pr-lg-5 pl-lg-5">
           <Link to="/home">FoodTopia</Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
