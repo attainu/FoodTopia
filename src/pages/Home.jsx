@@ -8,6 +8,7 @@ import TopRes from "../components/TopRes";
 import "../Styles/App.css";
 import "../Styles/HomePage.css";
 
+
 class Home extends Component {
   componentDidMount() {
     if (this.props.cityState.selectedCity === "") {
