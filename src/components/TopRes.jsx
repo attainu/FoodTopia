@@ -1,15 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import TopResCard from "../components/Reusable/TopResCard";
+import "../Styles/HomePage.css";
 class TopRes extends Component {
   state = {
     toggleAll: true,
   };
   toggleAll = () => {
     this.setState({ toggleAll: !this.state.toggleAll });
+    var top = document.querySelector("#header-topres");
+    top.scrollIntoView();
   };
   toggleSome = () => {
     this.setState({ toggleAll: !this.state.toggleAll });
+    var top = document.querySelector("#header-topres");
+    top.scrollIntoView();
   };
   render() {
     return (
@@ -18,29 +23,35 @@ class TopRes extends Component {
           <h1>Loading</h1>
         ) : (
           <div>
-            <h1>Top Places In {this.props.cityState.selectedCity}</h1>
+            <h1 id="header-topres">
+              Top Places In {this.props.cityState.selectedCity}
+            </h1>
             {this.state.toggleAll ? (
               <React.Fragment>
-                {this.props.topResSome.map((res) => {
-                  return (
-                    <TopResCard
-                      key={res.restaurant.id}
-                      details={res.restaurant}
-                    />
-                  );
-                })}
+                <div className="toprescard-container">
+                  {this.props.topResSome.map((res) => {
+                    return (
+                      <TopResCard
+                        key={res.restaurant.id}
+                        details={res.restaurant}
+                      />
+                    );
+                  })}
+                </div>
                 <button onClick={this.toggleAll}>View All</button>
               </React.Fragment>
             ) : (
               <React.Fragment>
-                {this.props.topResAll.map((res) => {
-                  return (
-                    <TopResCard
-                      key={res.restaurant.id}
-                      details={res.restaurant}
-                    />
-                  );
-                })}
+                <div className="toprescard-container">
+                  {this.props.topResAll.map((res) => {
+                    return (
+                      <TopResCard
+                        key={res.restaurant.id}
+                        details={res.restaurant}
+                      />
+                    );
+                  })}
+                </div>
                 <button onClick={this.toggleSome}>View Less</button>
               </React.Fragment>
             )}
