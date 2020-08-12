@@ -1,4 +1,9 @@
-import { SET_CURRENT_RES, LOADING_TOGGLE, SET_REVIEWS } from "../actionTypes";
+import {
+  SET_CURRENT_RES,
+  LOADING_TOGGLE,
+  SET_REVIEWS,
+  RESET,
+} from "../actionTypes";
 
 const initialState = {
   currentRes: null,
@@ -23,6 +28,11 @@ const indiResReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: !state.loading,
+      };
+    case RESET:
+      return {
+        ...state,
+        reviews: null,
       };
     default:
       return {

@@ -1,0 +1,114 @@
+.indiResCard {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin-top: 20px;
+}
+.indiResCard img {
+  margin-top: 20px;
+}
+.indiResCard-details {
+  width: 80%;
+  margin: 10px;
+}
+.indiResCard-res-name {
+  font-weight: bold;
+  font-size: 2rem;
+}
+.indiResCard-ratings-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 150px;
+}
+.indiResCard-ratings-container span {
+  font-weight: bold;
+}
+span {
+  font-weight: bold;
+}
+.indiResCard-highlights {
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  background-color: coral;
+  color: white;
+}
+/* styles for review component */
+
+.reviews-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h3 {
+  text-align: center;
+}
+.review-card {
+  width: 70%;
+  margin: auto;
+  border: 1px solid coral;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.review-profile-img-container {
+  width: 40px;
+  height: 40px;
+}
+.review-profile-img-container img {
+  width: 100%;
+}
+
+.review-card-profile-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.review-card-profile-container p {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.view-more {
+  cursor: pointer;
+  width: 200px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px solid grey;
+  text-align: center;
+}
+@media only screen and (max-width: 768px) {
+  .indiResCard {
+    width: 100%;
+  }
+  .indiResCard-details {
+    width: 50%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .indiResCard {
+    width: 90%;
+  }
+  p {
+    text-align: center;
+  }
+  .indiResCard-details {
+    width: 100%;
+  }
+  .indiResCard-res-name {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  .indiResCard-ratings-container {
+    width: 150px;
+    flex-direction: column;
+    margin: auto;
+  }
+}
