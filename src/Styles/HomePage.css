@@ -47,9 +47,16 @@ h1 {
   align-items: center;
   flex-wrap: wrap;
 }
-
+.view-more-btn {
+  min-width: 100px;
+  max-width: 200px;
+  border: 1px solid grey;
+  margin: auto;
+  text-align: center;
+  cursor: pointer;
+}
 .toprescard {
-  width: 40%;
+  margin: auto;
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 10px;
@@ -59,6 +66,9 @@ h1 {
   flex-wrap: wrap;
   box-shadow: 0px 0px 2px coral;
   position: relative;
+}
+.toprescard:hover {
+  box-shadow: 0px 0px 10px coral;
 }
 .toprescard-name-address {
   padding: 10px;

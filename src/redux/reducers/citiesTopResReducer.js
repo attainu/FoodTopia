@@ -1,9 +1,16 @@
-import { SET_TOP_RES, LOADING_TOGGLE } from "../actionTypes";
+import {
+  SET_TOP_RES,
+  LOADING_TOGGLE,
+  SET_NEARBY_RES,
+  SET_NEARBY_RES_ID,
+} from "../actionTypes";
 
 const initialState = {
   topRestaurantsSome: null,
   topRestaurantsAll: null,
   loading: false,
+  nearbyResIds: null,
+  nearbyRes: null,
 };
 
 const citiesTopResReducer = (state = initialState, action) => {
@@ -21,6 +28,18 @@ const citiesTopResReducer = (state = initialState, action) => {
         ...state,
         loading: !state.loading,
       };
+    case SET_NEARBY_RES_ID: {
+      return {
+        ...state,
+        nearbyResIds: payload,
+      };
+    }
+    case SET_NEARBY_RES: {
+      return {
+        ...state,
+        nearbyRes: payload,
+      };
+    }
     default:
       return {
         ...state,

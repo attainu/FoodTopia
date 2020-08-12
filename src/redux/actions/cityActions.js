@@ -3,10 +3,11 @@ import {
   SET_COLLECTIONS,
   LOADING_TOGGLE,
   SET_TOP_RES,
+  SET_NEARBY_RES_ID,
 } from "../actionTypes";
 
 import { fetchTopCollections } from "./collectionsAction";
-import { fetchTopRes } from "./citiesTopResActions";
+import { fetchTopRes, fetchNearbyRes } from "./citiesTopResActions";
 import config from "../../config";
 import axios from "axios";
 
@@ -27,7 +28,10 @@ export const fetchCity = (cityName) => {
         dispatch({ type: SET_CITY, payload: res.data.location_suggestions[0] });
         fetchTopCollections(res.data.location_suggestions[0].id)
           .then((res) => {
-            dispatch({ type: SET_COLLECTIONS, payload: res.data.collections });
+            dispatch({
+              type: SET_COLLECTIONS,
+              payload: res.data.collections,
+            });
             dispatch({ type: LOADING_TOGGLE });
           })
           .catch((err) => {
@@ -35,7 +39,15 @@ export const fetchCity = (cityName) => {
             dispatch({ type: LOADING_TOGGLE });
           });
         fetchTopRes(res.data.location_suggestions[0].id).then((res) => {
-          dispatch({ type: SET_TOP_RES, payload: res });
+          dispatch({ type: SET_TOP_RES, payload: res.best_rated_restaurant });
+          dispatch({
+            type: SET_NEARBY_RES_ID,
+            payload: res.nearby_res,
+          });
+
+          // fetchNearbyRes(res.nearby_res).then((res) => {
+          //   console.log(res);
+          // });
         });
       })
       .catch((err) => {

@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer.jsx";
 import AllCollections from "./pages/AllCollecions";
 import SignupPage from "./pages/SignupPage";
+import IndiResPage from "./pages/IndiResPage";
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
           <Route path="/login" component={SignupPage} />
           <Route path="/collection:collectionId" />
           <Route path="/allCollections:cityName" component={AllCollections} />
+          <Route path="/restaurant-:resId" component={IndiResPage} />
           <Redirect to="/home" />
         </Switch>
         <Footer />
