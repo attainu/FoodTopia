@@ -10,7 +10,6 @@ class IndiResPage extends Component {
     this.props.fetchCurrentRes(this.props.match.params.resId);
   }
   render() {
-    console.log(this.props.match.params.resId);
     return (
       <section>
         <React.Fragment>
@@ -23,7 +22,10 @@ class IndiResPage extends Component {
                 <h1>Loading</h1>
               ) : (
                 <div className="reviews-container">
-                  <Reviews details={this.props.currentRes.reviews} />
+                  <Reviews
+                    details={this.props.currentRes.reviews}
+                    resId={this.props.match.params.resId}
+                  />
                 </div>
               )}
               <ResMap

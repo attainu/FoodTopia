@@ -1,4 +1,9 @@
-import { SET_CURRENT_RES, SET_REVIEWS, LOADING_TOGGLE } from "../actionTypes";
+import {
+  SET_CURRENT_RES,
+  SET_REVIEWS,
+  LOADING_TOGGLE,
+  RESET,
+} from "../actionTypes";
 import axios from "axios";
 export const fetchCurrentRes = (resId) => {
   return (dispatch) => {
@@ -34,4 +39,26 @@ export const fetchReviews = (resId, start = 0) => {
     .catch((err) => {
       console.error(err);
     });
+};
+
+export const fetchMoreReviews = (resId, start) => {
+  return (dispatch) => {
+    dispatch({ type: RESET });
+    dispatch({ type: LOADING_TOGGLE });
+    axios
+      .get(
+        `https://developers.zomato.com/api/v2.1/reviews?res_id=${resId}&start=${start}`,
+        {
+          headers: { "user-key": "24e231a1f7e682b075d9c7b00457e3bb" },
+        }
+      )
+      .then((res) => {
+        dispatch({ type: SET_REVIEWS, payload: res.data });
+        dispatch({ type: LOADING_TOGGLE });
+      })
+      .catch((err) => {
+        console.error(err);
+        dispatch({ type: LOADING_TOGGLE });
+      });
+  };
 };
