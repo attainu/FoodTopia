@@ -38,7 +38,9 @@ class TopRes extends Component {
                     );
                   })}
                 </div>
-                <button onClick={this.toggleAll}>View All</button>
+                <div onClick={this.toggleAll} className="view-more-btn">
+                  View All
+                </div>
               </React.Fragment>
             ) : (
               <React.Fragment>
@@ -52,7 +54,9 @@ class TopRes extends Component {
                     );
                   })}
                 </div>
-                <button onClick={this.toggleSome}>View Less</button>
+                <div onClick={this.toggleSome} className="view-more-btn">
+                  View Less
+                </div>
               </React.Fragment>
             )}
           </div>

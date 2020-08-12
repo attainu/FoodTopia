@@ -30,7 +30,7 @@ class TopCollections extends Component {
           </div>
           <Link
             to={`/allCollections-${this.props.cityState.selectedCity}`}
-            className="more-collections"
+            className="view-more-btn"
           >
             View All Collections
           </Link>
