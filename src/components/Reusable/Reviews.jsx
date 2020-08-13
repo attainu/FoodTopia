@@ -20,11 +20,24 @@ class Reviews extends Component {
     var top = document.querySelector("#header-reviews");
     top.scrollIntoView();
   };
+  expression = (rating) => {
+    if (rating === 5) {
+      return "😍";
+    } else if (rating === 4) {
+      return "😋";
+    } else if (rating === 3) {
+      return "😕";
+    } else if (rating === 2) {
+      return "😐";
+    } else {
+      return "🙁";
+    }
+  };
   render() {
-    console.log(this.props);
+    console.log(this.expression);
     return (
-      <div>
-        <h3 id="header-reviews">User Reviews</h3>
+      <div id="header-reviews">
+        <h3>User Reviews </h3>
         {this.props.details.reviews_start === 0 ? (
           <React.Fragment></React.Fragment>
         ) : (
@@ -44,13 +57,21 @@ class Reviews extends Component {
                 </p>
               </div>
               <div className="indiResCard-ratings-container">
-                <span>{review.review.rating}</span>
+                <span>{review.review.rating} </span>
+                <span>{"    "}</span>
                 <small> ({review.review.rating_text})</small>
                 <Ratings rating={review.review.rating} />
               </div>
               <p>
-                <span>{review.review.review_text}</span>
+                {!review.review.review_text ? (
+                  <span>No Comments By User</span>
+                ) : (
+                  <span>{review.review.review_text}</span>
+                )}
               </p>
+              <span className="expression">
+                {this.expression(review.review.rating)}
+              </span>
             </div>
           );
         })}

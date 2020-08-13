@@ -1,8 +1,14 @@
-import { SET_COLLECTIONS } from "../actionTypes";
+import {
+  SET_COLLECTIONS,
+  SET_CURRENT_COLLECTION,
+  LOADING_TOGGLE,
+} from "../actionTypes";
 
 const initialState = {
   topCollections: null,
   allCollections: null,
+  currentCollection: null,
+  loading: false,
 };
 
 const collectionsReducer = (state = initialState, action) => {
@@ -15,6 +21,17 @@ const collectionsReducer = (state = initialState, action) => {
         allCollections: payload,
         topCollections: topCollections,
       };
+    case SET_CURRENT_COLLECTION:
+      return {
+        ...state,
+        currentCollection: payload,
+      };
+    case LOADING_TOGGLE: {
+      return {
+        ...state,
+        loading: !state.loading,
+      };
+    }
     default:
       return {
         ...state,

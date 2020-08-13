@@ -32,7 +32,7 @@ const indiResReducer = (state = initialState, action) => {
     case RESET:
       return {
         ...state,
-        reviews: null,
+        reviews: payload,
       };
     default:
       return {
