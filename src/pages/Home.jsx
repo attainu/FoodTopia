@@ -21,6 +21,7 @@ class Home extends Component {
     } else {
       return;
     }
+    window.scrollTo(0, 0);
   }
   render() {
     return (

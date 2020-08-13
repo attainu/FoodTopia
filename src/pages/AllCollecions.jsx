@@ -15,6 +15,8 @@ class Home extends Component {
     } else {
       this.props.fetchCity(this.props.cityState.selectedCity);
     }
+    var top = document.querySelector("#header");
+    top.scrollIntoView();
   }
   render() {
     return (
@@ -26,7 +28,7 @@ class Home extends Component {
             </h1>
           ) : (
             <React.Fragment>
-              <h1>
+              <h1 id="header">
                 Showing All Collections for {this.props.cityState.selectedCity}
               </h1>
               {!this.props.collectionState ? (

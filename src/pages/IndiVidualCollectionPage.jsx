@@ -9,6 +9,8 @@ class IndiVidualCollectionPage extends Component {
       this.props.match.params.collectionId,
       this.props.cityDetails.selectedCityId
     );
+    var top = document.querySelector("#header-collection");
+    top.scrollIntoView();
   }
   viewPrevious = () => {
     this.props.fetchCurrentCollection(
@@ -29,7 +31,6 @@ class IndiVidualCollectionPage extends Component {
     top.scrollIntoView();
   };
   render() {
-    console.log(this.props.currentCollection.currentCollection);
     return (
       <React.Fragment>
         <section className="home-section">
@@ -69,11 +70,11 @@ class IndiVidualCollectionPage extends Component {
                   </div>
                   {this.props.currentCollection.currentCollection.restaurants
                     .length === 20 ? (
-                    <React.Fragment></React.Fragment>
-                  ) : (
                     <div className="view-more-btn" onClick={this.viewMore}>
                       View More Restaurants
                     </div>
+                  ) : (
+                    <React.Fragment></React.Fragment>
                   )}
                 </React.Fragment>
               )}

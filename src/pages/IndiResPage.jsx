@@ -9,15 +9,18 @@ import config from "../config";
 class IndiResPage extends Component {
   componentDidMount() {
     this.props.fetchCurrentRes(this.props.match.params.resId);
+    this.scrollToTop();
   }
+  scrollToTop = () => {
+    var top = document.querySelector("#header");
+    top.scrollIntoView();
+  };
   render() {
     return (
-      <section>
+      <section id="header">
         <React.Fragment>
           {!this.props.currentRes.currentRes ? (
-            <h1>
-              <Loader />
-            </h1>
+            <h1>{this.props.currentRes.loading ? <Loader /> : <></>}</h1>
           ) : (
             <React.Fragment>
               <IndiResCard details={this.props.currentRes.currentRes} />

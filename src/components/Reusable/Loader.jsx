@@ -5,15 +5,21 @@ export default class Loader extends Component {
     number: 0,
   };
   componentDidMount() {
-    setInterval(() => {
+    this.startInterval();
+  }
+  componentWillUnmount() {
+    clearInterval(this.startInterval());
+  }
+
+  startInterval = () => {
+    return setInterval(() => {
       if (this.state.number === 10) {
         this.setState({ number: 0 });
       } else {
         this.setState({ number: this.state.number + 1 });
       }
     }, 300);
-  }
-
+  };
   loaderAnimation = () => {
     const num = this.state.number;
     if (num === 1) {
@@ -39,6 +45,6 @@ export default class Loader extends Component {
     }
   };
   render() {
-    return <div style={{ fontSize: "10rem" }}>{this.loaderAnimation()}</div>;
+    return <div style={{ fontSize: "3rem" }}>{this.loaderAnimation()}</div>;
   }
 }

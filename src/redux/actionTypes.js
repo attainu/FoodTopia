@@ -8,3 +8,4 @@ export const SET_CURRENT_RES = "SET_CURRENT_RES";
 export const SET_REVIEWS = "SET_REVIEWS";
 export const RESET = "RESET";
 export const SET_CURRENT_COLLECTION = "SET_CURRENT_COLLECTION";
+export const RESET_RES = "RESET_RES";

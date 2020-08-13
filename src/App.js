@@ -11,6 +11,9 @@ import SignupPage from "./pages/SignupPage";
 import IndiResPage from "./pages/IndiResPage";
 import FloatingButton from "./components/Reusable/FloatingButton";
 import IndividualCollectionPage from "./pages/IndiVidualCollectionPage";
+
+//
+
 class App extends Component {
   render() {
     console.log();
