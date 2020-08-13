@@ -58,6 +58,7 @@ h1 {
   cursor: pointer;
 }
 .toprescard {
+  width: 600px;
   margin: auto;
   margin-bottom: 20px;
   padding: 10px;

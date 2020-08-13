@@ -9,7 +9,9 @@ const CollectionCard = ({ details }) => {
         <Card>
           <img width="100%" src={details.image_url} alt="Card cap" />
           <CardBody>
-            <CardTitle>{details.title}</CardTitle>
+            <CardTitle className="font-weight-bolder">
+              {details.title}
+            </CardTitle>
             <CardSubtitle>{details.res_count} Places</CardSubtitle>
           </CardBody>
         </Card>

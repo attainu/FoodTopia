@@ -2,6 +2,7 @@ import {
   SET_COLLECTIONS,
   SET_CURRENT_COLLECTION,
   LOADING_TOGGLE,
+  RESET,
 } from "../actionTypes";
 
 const initialState = {
@@ -26,12 +27,17 @@ const collectionsReducer = (state = initialState, action) => {
         ...state,
         currentCollection: payload,
       };
-    case LOADING_TOGGLE: {
+    case LOADING_TOGGLE:
       return {
         ...state,
         loading: !state.loading,
       };
-    }
+
+    case RESET:
+      return {
+        ...state,
+        currentCollection: payload,
+      };
     default:
       return {
         ...state,
