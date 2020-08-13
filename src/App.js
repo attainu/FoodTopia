@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import MyNavbar from "./components/Navbar.jsx";
-import Sidebar from "./components/SideBar/Sidebar.jsx";
+//import Sidebar from "./components/SideBar/Sidebar.jsx";
 // import SearchUtility from "./components/SearchUtility";
 import { Switch, Route, Redirect } from "react-router-dom";
 
@@ -18,7 +18,7 @@ class App extends Component {
       <div>
         <MyNavbar />
         {/* <SearchUtility /> */}
-        <Sidebar />
+        
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/profile" />
