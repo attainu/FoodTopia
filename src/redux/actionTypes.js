@@ -7,3 +7,4 @@ export const SET_NEARBY_RES_ID = "SET_NEARBY_RES_ID";
 export const SET_CURRENT_RES = "SET_CURRENT_RES";
 export const SET_REVIEWS = "SET_REVIEWS";
 export const RESET = "RESET";
+export const SET_CURRENT_COLLECTION = "SET_CURRENT_COLLECTION";

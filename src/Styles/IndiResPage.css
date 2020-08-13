@@ -51,7 +51,9 @@ h3 {
   text-align: center;
 }
 .review-card {
-  width: 70%;
+  position: relative;
+  min-width: 70vw;
+  max-width: 70%;
   margin: auto;
   border: 1px solid coral;
   margin-bottom: 10px;
@@ -84,6 +86,12 @@ h3 {
   border: 1px solid grey;
   text-align: center;
 }
+.expression {
+  font-size: 2rem;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
 @media only screen and (max-width: 768px) {
   .indiResCard {
     width: 100%;
@@ -110,5 +118,8 @@ h3 {
     width: 150px;
     flex-direction: column;
     margin: auto;
+  }
+  .expression {
+    font-size: 1.5rem;
   }
 }

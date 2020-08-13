@@ -61,7 +61,6 @@ h1 {
   margin: auto;
   margin-bottom: 20px;
   padding: 10px;
-  border-radius: 10px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -115,7 +114,7 @@ h1 {
   .toprescard {
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 100%;
   }
   .toprescard-ratings-container {
     position: static;
