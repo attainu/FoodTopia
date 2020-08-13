@@ -14,7 +14,7 @@ const FloatingButton = () => {
         <Button
           tooltip="Home"
           styles={{
-            backgroundColor: "coral",
+            backgroundColor: "rgb(9, 2, 66)",
             color: lightColors.white,
           }}
           icon="fa fa-home"

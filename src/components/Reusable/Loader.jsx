@@ -39,6 +39,6 @@ export default class Loader extends Component {
     }
   };
   render() {
-    return <div style={{ fontSize: "10rem" }}>{this.loaderAnimation()}</div>;
+    return <div style={{ fontSize: "6rem" }}>{this.loaderAnimation()}</div>;
   }
 }
