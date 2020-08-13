@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import MyNavbar from "./components/Navbar.jsx";
+//import Sidebar from "./components/SideBar/Sidebar.jsx";
 // import SearchUtility from "./components/SearchUtility";
 import { Switch, Route, Redirect } from "react-router-dom";
+
 
 // COMPONENT IMPORTSSSSS
 import Home from "./pages/Home";

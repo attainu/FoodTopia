@@ -9,5 +9,7 @@ section {
 
 .my-navbar {
   height: 10vh;
-  background-color: coral;
+  background-color: rgb(9, 2, 66);
+  color: white;
+  font-weight: bold;
 }
