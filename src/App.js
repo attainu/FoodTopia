@@ -18,7 +18,6 @@ class App extends Component {
       <div>
         <MyNavbar />
         {/* <SearchUtility /> */}
-        
         <Switch>
           <Route path="/home" component={Home} />
           <Route path="/profile" />
