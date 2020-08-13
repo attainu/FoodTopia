@@ -5,6 +5,7 @@ import { fetchTopCollections } from "../redux/actions/collectionsAction";
 import { fetchNearbyRes } from "../redux/actions/citiesTopResActions";
 import TopCollections from "../components/TopCollections";
 import TopRes from "../components/TopRes";
+import Loader from "../components/Reusable/Loader";
 // import ImageAndWelcome from "../components/ImageAndWelcome";
 import "../Styles/App.css";
 import "../Styles/HomePage.css";
@@ -27,7 +28,9 @@ class Home extends Component {
       <React.Fragment>
         <section className="home-section">
           {this.props.cityState.loading ? (
-            <h1>Loading</h1>
+            <h1>
+              <Loader />
+            </h1>
           ) : (
             <React.Fragment>
               {!this.props.collectionState ? (

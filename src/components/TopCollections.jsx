@@ -35,6 +35,7 @@ class TopCollections extends Component {
             View All Collections
           </Link>
         </div>
+        <hr />
       </React.Fragment>
     );
   }

@@ -4,6 +4,7 @@ import { fetchCurrentRes } from "../redux/actions/indiResActions";
 import ResMap from "../components/Reusable/ResMap";
 import IndiResCard from "../components/Reusable/IndiResCard";
 import Reviews from "../components/Reusable/Reviews";
+import Loader from "../components/Reusable/Loader";
 import config from "../config";
 class IndiResPage extends Component {
   componentDidMount() {
@@ -14,12 +15,16 @@ class IndiResPage extends Component {
       <section>
         <React.Fragment>
           {!this.props.currentRes.currentRes ? (
-            <h1>Loading</h1>
+            <h1>
+              <Loader />
+            </h1>
           ) : (
             <React.Fragment>
               <IndiResCard details={this.props.currentRes.currentRes} />
               {!this.props.currentRes.reviews ? (
-                <h1>Loading</h1>
+                <h1>
+                  <Loader />
+                </h1>
               ) : (
                 <div className="reviews-container">
                   <Reviews

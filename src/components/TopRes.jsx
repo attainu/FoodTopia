@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import TopResCard from "../components/Reusable/TopResCard";
 import "../Styles/HomePage.css";
+import Loader from "../components/Reusable/Loader";
 class TopRes extends Component {
   state = {
     toggleAll: true,
@@ -20,7 +21,9 @@ class TopRes extends Component {
     return (
       <div>
         {!this.props.topResSome ? (
-          <h1>Loading</h1>
+          <h1>
+            <Loader />
+          </h1>
         ) : (
           <div>
             <h1 id="header-topres">
@@ -61,6 +64,7 @@ class TopRes extends Component {
             )}
           </div>
         )}
+        <hr />
       </div>
     );
   }

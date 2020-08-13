@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchCity } from "../redux/actions/cityActions";
 import { fetchTopCollections } from "../redux/actions/collectionsAction";
 import CollectionCard from "../components/Reusable/CollectionCard";
+import Loader from "../components/Reusable/Loader";
 // import ImageAndWelcome from "../components/ImageAndWelcome";
 import "../Styles/App.css";
 import "../Styles/HomePage.css";
@@ -20,7 +21,9 @@ class Home extends Component {
       <React.Fragment>
         <section className="home-section">
           {this.props.cityState.loading ? (
-            <h1>Loading</h1>
+            <h1>
+              <Loader />
+            </h1>
           ) : (
             <React.Fragment>
               <h1>
