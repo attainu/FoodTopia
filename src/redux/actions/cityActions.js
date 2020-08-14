@@ -4,6 +4,7 @@ import {
   LOADING_TOGGLE,
   SET_TOP_RES,
   SET_NEARBY_RES_ID,
+  TOGGLE_SIDEBAR,
 } from "../actionTypes";
 
 import { fetchTopCollections } from "./collectionsAction";
@@ -54,5 +55,13 @@ export const fetchCity = (cityName) => {
         console.error(err);
         dispatch({ type: LOADING_TOGGLE });
       });
+  };
+};
+
+export const toggleSideBar = () => {
+  return (dispatch) => {
+    window.scrollTo(0, 0);
+
+    dispatch({ type: TOGGLE_SIDEBAR });
   };
 };

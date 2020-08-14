@@ -6,13 +6,92 @@ section {
   min-height: 95vh;
   width: 100%;
 }
-
+.loader-div {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 40vh;
+}
+.hamburger {
+  font-size: 2.5rem;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.hamburger:hover {
+  color: rgb(255, 217, 0);
+}
 .my-navbar {
   height: 10vh;
   background-color: rgb(9, 2, 66);
   color: white;
   font-weight: bold;
-  font-size: 25px;
+  position: fixed;
+  top: 0px;
+  width: 100vw;
+  z-index: 100;
+}
+.brand {
+  font-size: 1.5rem;
+}
+.top-spacing {
+  height: 5vh;
+  width: 100vw;
+}
+.side-bar {
+  min-width: 100vw;
+  min-height: 100%;
+  position: absolute;
+  top: 10vh;
+  z-index: 10;
+  overflow: hidden;
+}
+.side-bar-content {
+  width: 20vw;
+  height: 100vh;
+  background-color: rgb(9, 2, 66);
+  display: inline-block;
+  border-top: 2px solid rgb(255, 217, 0);
+}
+.side-bar-extra {
+  margin-left: 30%;
+  width: 80vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.479);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 0px 0px 10px white;
+}
+@media only screen and (max-width: 768px) {
+  .side-bar-content {
+    width: 30%;
+  }
+  .side-bar-extra {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 1440px) {
+}
+@media only screen and (max-width: 600px) {
+  .hamburger {
+    font-size: 2rem;
+  }
+  .brand {
+    margin-right: auto;
+    font-size: 1rem;
+  }
+  .side-bar-content {
+    width: 50%;
+  }
+  .side-bar-extra {
+    width: 50%;
+  }
 }
 
 

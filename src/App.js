@@ -4,7 +4,6 @@ import MyNavbar from "./components/Navbar.jsx";
 // import SearchUtility from "./components/SearchUtility";
 import { Switch, Route, Redirect } from "react-router-dom";
 
-
 // COMPONENT IMPORTSSSSS
 import Home from "./pages/Home";
 import Footer from "./components/Footer.jsx";
@@ -13,11 +12,16 @@ import SignupPage from "./pages/SignupPage";
 import IndiResPage from "./pages/IndiResPage";
 import FloatingButton from "./components/Reusable/FloatingButton";
 import IndividualCollectionPage from "./pages/IndiVidualCollectionPage";
+import SideBarToggleable from "./components/SideBarToggleable.jsx";
+
+//
+
 class App extends Component {
   render() {
     console.log();
     return (
       <div>
+        <SideBarToggleable />
         <MyNavbar />
         {/* <SearchUtility /> */}
         <FloatingButton />

@@ -5,26 +5,33 @@ import ResMap from "../components/Reusable/ResMap";
 import IndiResCard from "../components/Reusable/IndiResCard";
 import Reviews from "../components/Reusable/Reviews";
 import Loader from "../components/Reusable/Loader";
+import SmallLoader from "../components/Reusable/SmallLoader";
 import config from "../config";
 class IndiResPage extends Component {
   componentDidMount() {
     this.props.fetchCurrentRes(this.props.match.params.resId);
+    window.scrollTo(0, 0);
   }
+  scrollToTop = () => {
+    var top = document.querySelector("#header");
+    top.scrollIntoView();
+  };
   render() {
     return (
-      <section>
+      <section id="header">
+        <div className="top-spacing"></div>
         <React.Fragment>
           {!this.props.currentRes.currentRes ? (
-            <h1>
-              <Loader />
-            </h1>
+            <div className="loader-div">
+              {this.props.currentRes.loading ? <Loader /> : <></>}
+            </div>
           ) : (
             <React.Fragment>
               <IndiResCard details={this.props.currentRes.currentRes} />
               {!this.props.currentRes.reviews ? (
-                <h1>
-                  <Loader />
-                </h1>
+                <div>
+                  <SmallLoader />
+                </div>
               ) : (
                 <div className="reviews-container">
                   <Reviews

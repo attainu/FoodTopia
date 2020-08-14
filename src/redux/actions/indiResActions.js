@@ -3,10 +3,12 @@ import {
   SET_REVIEWS,
   LOADING_TOGGLE,
   RESET,
+  RESET_RES,
 } from "../actionTypes";
 import axios from "axios";
 export const fetchCurrentRes = (resId) => {
   return (dispatch) => {
+    dispatch({ type: RESET_RES, payload: null });
     dispatch({ type: LOADING_TOGGLE });
     axios(`https://developers.zomato.com/api/v2.1/restaurant?res_id=${resId}`, {
       headers: {
@@ -24,6 +26,7 @@ export const fetchCurrentRes = (resId) => {
       })
       .catch((err) => {
         console.error(err);
+        console.log("----------------------" + err);
         dispatch({ type: LOADING_TOGGLE });
       });
   };
@@ -61,7 +64,7 @@ export const fetchMoreReviews = (resId, start) => {
         dispatch({ type: LOADING_TOGGLE });
       })
       .catch((err) => {
-        console.error(err);
+        console.log("----------------------" + err.message);
         dispatch({ type: LOADING_TOGGLE });
       });
   };

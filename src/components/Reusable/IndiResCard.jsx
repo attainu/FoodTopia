@@ -2,8 +2,15 @@ import React from "react";
 import Ratings from "../Reusable/Ratings";
 import "../../Styles/IndiResPage.css";
 const IndiResCard = ({ details }) => {
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
   return (
-    <div className="indiResCard" overlay={details.featured_image}>
+    <div
+      className="indiResCard"
+      overlay={details.featured_image}
+      onClick={scrollTop}
+    >
       <div className="indiResCard-img-container">
         <img src={details.thumb} alt="It is delicious" />
       </div>

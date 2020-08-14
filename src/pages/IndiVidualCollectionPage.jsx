@@ -9,6 +9,7 @@ class IndiVidualCollectionPage extends Component {
       this.props.match.params.collectionId,
       this.props.cityDetails.selectedCityId
     );
+    window.scrollTo(0, 0);
   }
   viewPrevious = () => {
     this.props.fetchCurrentCollection(
@@ -29,14 +30,14 @@ class IndiVidualCollectionPage extends Component {
     top.scrollIntoView();
   };
   render() {
-    console.log(this.props.currentCollection.currentCollection);
     return (
       <React.Fragment>
+        <div className="top-spacing"></div>
         <section className="home-section">
           {this.props.currentCollection.loading ? (
-            <h1>
+            <div className="loader-div">
               <Loader />
-            </h1>
+            </div>
           ) : (
             <React.Fragment>
               <h1 id="header-collection">
@@ -69,11 +70,11 @@ class IndiVidualCollectionPage extends Component {
                   </div>
                   {this.props.currentCollection.currentCollection.restaurants
                     .length === 20 ? (
-                    <React.Fragment></React.Fragment>
-                  ) : (
                     <div className="view-more-btn" onClick={this.viewMore}>
                       View More Restaurants
                     </div>
+                  ) : (
+                    <React.Fragment></React.Fragment>
                   )}
                 </React.Fragment>
               )}

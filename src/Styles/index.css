@@ -17,15 +17,17 @@ a {
 }
 a:hover {
   text-decoration: none;
+  color: rgb(255, 217, 0);
 }
 .floating-home {
   position: sticky;
-  top: 10px;
+  top: 12vh;
   left: 10px;
   margin-left: 0px;
   padding-right: 90vw;
   font-size: 2rem;
 }
+
 @media only screen and (max-width: 600px) {
   body {
     width: 100vw;

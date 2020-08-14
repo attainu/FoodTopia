@@ -1,9 +1,6 @@
-.home-section {
-  /* background: linear-gradient(to right, #ece9e6, #ffffff); */
-  background: linear-gradient(to top, #0b486b, #f56217);
-  /* background-image: linear-gradient(to top, #c4c5c7 0%, #dcdddf 52%, #ebebeb 100%); */
-}
-
+/* .home-section {
+  background: linear-gradient(to right, #ece9e6, #ffffff);
+} */
 
 .my-cards-container {
   margin: auto;
@@ -31,14 +28,18 @@ h1 {
   min-height: 300px;
   max-height: 300px;
   overflow: hidden;
+<<<<<<< HEAD
   box-shadow: 0px 0px 5px rgb(255, 208, 0);
+=======
+  box-shadow: 0px 0px 5px rgb(17, 8, 85);
+>>>>>>> vinayak
   margin-bottom: 10px;
 }
 .my-card > * {
   border: none;
 }
 .my-card:hover {
-  box-shadow: 0px 0px 20px rgb(255, 217, 0);
+  box-shadow: 0px 0px 20px rgb(17, 8, 85);
 }
 
 .more-collections {
@@ -68,6 +69,10 @@ h1 {
   font-weight: bold;
   background-color: rgb(255, 217, 0);
 }
+.view-more-btn:hover {
+  box-shadow: 0px 0px 10px rgb(17, 8, 85);
+  color: rgb(17, 8, 85);
+}
 .toprescard {
   width: 600px;
   margin: auto;
@@ -83,7 +88,7 @@ h1 {
   color: white;
 }
 .toprescard:hover {
-  box-shadow: 0px 0px 10px rgb(255, 217, 0);
+  box-shadow: 0px 0px 20px rgb(255, 217, 0);
 }
 .toprescard-name-address {
   padding: 10px;
@@ -113,17 +118,38 @@ h1 {
   align-items: center;
   padding-bottom: 8px;
 }
+h1 {
+  font-weight: bolder;
+  padding: 10px;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 2px rgb(17, 8, 85);
+}
 
 @media only screen and (max-width: 768px) {
   .toprescard {
     justify-content: flex-start;
     align-items: center;
-    width: 80%;
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  .toprescard {
+    flex-direction: column;
+    padding-top: 35px;
+    width: 100%;
   }
 }
 @media only screen and (max-width: 600px) {
   h1 {
     font-size: 1rem;
+    font-weight: bolder;
+    padding: 10px;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 2px rgb(17, 8, 85);
   }
   .toprescard {
     justify-content: center;

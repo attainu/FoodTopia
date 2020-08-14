@@ -10,7 +10,6 @@ import Loader from "../components/Reusable/Loader";
 import "../Styles/App.css";
 import "../Styles/HomePage.css";
 
-
 class Home extends Component {
   componentDidMount() {
     if (!this.props.cityState.selectedCityId) {
@@ -22,15 +21,17 @@ class Home extends Component {
     } else {
       return;
     }
+    window.scrollTo(0, 0);
   }
   render() {
     return (
       <React.Fragment>
+        <div className="top-spacing"></div>
         <section className="home-section">
           {this.props.cityState.loading ? (
-            <h1>
+            <div className="loader-div">
               <Loader />
-            </h1>
+            </div>
           ) : (
             <React.Fragment>
               {!this.props.collectionState ? (

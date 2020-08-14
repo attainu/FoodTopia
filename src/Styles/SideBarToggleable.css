@@ -1,0 +1,9 @@
+.side-bar {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+}

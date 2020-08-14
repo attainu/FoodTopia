@@ -3,6 +3,7 @@ import {
   LOADING_TOGGLE,
   SET_REVIEWS,
   RESET,
+  RESET_RES,
 } from "../actionTypes";
 
 const initialState = {
@@ -28,6 +29,11 @@ const indiResReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: !state.loading,
+      };
+    case RESET_RES:
+      return {
+        ...state,
+        currentRes: payload,
       };
     case RESET:
       return {

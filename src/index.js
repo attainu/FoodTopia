@@ -6,6 +6,10 @@ import store from "../src/redux/store";
 import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import "./Styles/index.css";
+
+//
+import createHistory from "history/createBrowserHistory";
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
