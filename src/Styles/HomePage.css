@@ -28,11 +28,7 @@ h1 {
   min-height: 300px;
   max-height: 300px;
   overflow: hidden;
-<<<<<<< HEAD
-  box-shadow: 0px 0px 5px rgb(255, 208, 0);
-=======
   box-shadow: 0px 0px 5px rgb(17, 8, 85);
->>>>>>> vinayak
   margin-bottom: 10px;
 }
 .my-card > * {

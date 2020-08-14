@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import fire from "../firebaseConfig";
+import "../Styles/LoginForm.css"
+//import { Button } from "reactstrap";
 class LoginForm extends Component {
   state = {
     email: "",
@@ -42,7 +44,7 @@ class LoginForm extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="login-container">
         <form onSubmit={this.handleSubmit}>
           <input
             type="email"
@@ -58,8 +60,9 @@ class LoginForm extends Component {
             onChange={this.handleChange}
             name="password"
           />
-          <input type="submit" value="Login" onClick={this.login} />
-          <input type="submit" value="SigUp" onClick={this.signUp} />
+          
+          <input type="submit" className="login-btn" value="Login" onClick={this.login} />
+          <input type="submit" className="sign-up-btn" value="SignUp" onClick={this.signUp} />
         </form>
       </div>
     );
