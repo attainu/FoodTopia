@@ -16,6 +16,8 @@ const FloatingButton = () => {
           styles={{
             backgroundColor: "rgb(9, 2, 66)",
             color: lightColors.white,
+            width: "40px",
+            height: "40px",
           }}
           icon="fa fa-home"
         />

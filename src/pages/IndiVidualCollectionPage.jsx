@@ -9,8 +9,7 @@ class IndiVidualCollectionPage extends Component {
       this.props.match.params.collectionId,
       this.props.cityDetails.selectedCityId
     );
-    var top = document.querySelector("#header-collection");
-    top.scrollIntoView();
+    window.scrollTo(0, 0);
   }
   viewPrevious = () => {
     this.props.fetchCurrentCollection(
@@ -33,11 +32,12 @@ class IndiVidualCollectionPage extends Component {
   render() {
     return (
       <React.Fragment>
+        <div className="top-spacing"></div>
         <section className="home-section">
           {this.props.currentCollection.loading ? (
-            <h1>
+            <div className="loader-div">
               <Loader />
-            </h1>
+            </div>
           ) : (
             <React.Fragment>
               <h1 id="header-collection">

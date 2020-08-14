@@ -6,11 +6,9 @@ export default class Loader extends Component {
   };
   componentDidMount() {
     this.startInterval();
-    document.querySelector("body").style.overflow = "hidden";
   }
   componentWillUnmount() {
     clearInterval(this.startInterval());
-    document.querySelector("body").style.overflow = "auto";
   }
 
   startInterval = () => {
@@ -47,6 +45,6 @@ export default class Loader extends Component {
     }
   };
   render() {
-    return <div style={{ fontSize: "6rem" }}>{this.loaderAnimation()}</div>;
+    return <div style={{ fontSize: "3rem" }}>{this.loaderAnimation()}</div>;
   }
 }

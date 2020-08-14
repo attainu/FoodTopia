@@ -1,9 +1,10 @@
-import { SET_CITY, LOADING_TOGGLE } from "../actionTypes";
+import { SET_CITY, LOADING_TOGGLE, TOGGLE_SIDEBAR } from "../actionTypes";
 
 const initialState = {
   selectedCity: "",
   selectedCityId: null,
   loading: false,
+  sideBarstate: false,
 };
 
 const cityReducer = (state = initialState, action) => {
@@ -21,6 +22,11 @@ const cityReducer = (state = initialState, action) => {
         loading: !state.loading,
       };
     }
+    case TOGGLE_SIDEBAR:
+      return {
+        ...state,
+        sideBarstate: !state.sideBarstate,
+      };
     default:
       return {
         ...state,

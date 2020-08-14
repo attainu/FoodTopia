@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { toggleSideBar } from "../redux/actions/cityActions";
 import "../Styles/App.css";
 class MyNavbar extends Component {
   // const [isOpen, setIsOpen] = useState(false);
@@ -14,11 +16,19 @@ class MyNavbar extends Component {
   toggle = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
+  toggleSideBar = () => {
+    this.props.toggleSideBar();
+  };
   render() {
     return (
       <div>
-        <Navbar light expand="md" className="my-navbar pr-lg-5 pl-lg-5">
-          <Link to="/home">FoodTopia</Link>
+        <Navbar light expand="md" className="my-navbar pr-lg-5 ">
+          <div className="hamburger" onClick={this.toggleSideBar}>
+            <i class="fa fa-bars"></i>
+          </div>
+          <Link to="/home" className="brand">
+            FoodTopia
+          </Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
@@ -40,4 +50,4 @@ class MyNavbar extends Component {
   }
 }
 
-export default MyNavbar;
+export default connect(null, { toggleSideBar })(MyNavbar);

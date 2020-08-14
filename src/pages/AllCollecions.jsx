@@ -15,17 +15,17 @@ class Home extends Component {
     } else {
       this.props.fetchCity(this.props.cityState.selectedCity);
     }
-    var top = document.querySelector("#header");
-    top.scrollIntoView();
+    window.scrollTo(0, 0);
   }
   render() {
     return (
       <React.Fragment>
+        <div className="top-spacing"></div>
         <section className="home-section">
           {this.props.cityState.loading ? (
-            <h1>
+            <div className="loader-div">
               <Loader />
-            </h1>
+            </div>
           ) : (
             <React.Fragment>
               <h1 id="header">
