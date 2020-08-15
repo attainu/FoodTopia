@@ -22,6 +22,12 @@ class Home extends Component {
       return;
     }
     window.scrollTo(0, 0);
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position.coords.latitude, position.coords.longitude);
+    });
+  }
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
   }
   render() {
     return (
@@ -34,8 +40,11 @@ class Home extends Component {
             </div>
           ) : (
             <React.Fragment>
+              <h6 style={{ textAlign: "center" }}>
+                Change Your City in the SideBar
+              </h6>
               {!this.props.collectionState ? (
-                <h1>Loading Top collections</h1>
+                <Loader />
               ) : (
                 <TopCollections collections={this.props.collectionState} />
               )}

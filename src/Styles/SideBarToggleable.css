@@ -1,9 +1,108 @@
-.side-bar {
-  min-width: 100vw;
-  min-height: 100vh;
-  background: white;
+.side-bar-content-toggle {
+  text-align: center;
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer */
+  -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none; /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+.side-bar-list-container::-webkit-scrollbar {
+  width: 3px;
+  background-color: rgba(255, 255, 0, 0.014);
+}
+.side-bar-list-container::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: rgb(255, 217, 0);
+  height: 10px;
+}
+.side-bar-list-container::-webkit-scrollbar-track {
+  width: 10px;
+}
+.side-bar-list-container {
+  height: 30vh;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.side-bar-content-toggle-head {
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid rgb(255, 217, 0);
+  border-top: 1px solid rgb(255, 217, 0);
+  position: relative;
+}
+.side-bar-toggle-list {
+  padding: 5px;
+  text-align: left;
+  padding-left: 20px;
+  font-size: 1.2rem;
+  position: relative;
+}
+.side-bar-toggle-list:hover {
+  background-color: rgb(255, 217, 0);
+  color: rgb(9, 2, 66);
+}
+.side-bar-city-input {
+  padding: 10px;
+  padding-left: 0px;
+}
+.side-bar-city-input input {
+  width: 80%;
+  outline: none;
+  padding-left: 5px;
+}
+.side-bar-city-input i {
+  cursor: pointer;
+  margin-left: 10px;
+}
+.side-bar-city-input button {
+  background-color: rgb(9, 2, 66);
+  color: white;
+  outline: none;
+  border: none;
+}
+.side-bar-city-input i:hover {
+  color: rgb(255, 217, 0);
+}
+.side-bar-toggle-list i {
   position: absolute;
-  top: 0px;
-  left: 0px;
-  z-index: 10;
+  right: 5px;
+  top: 7px;
+}
+.side-bar-content-toggle-head i {
+  position: absolute;
+  right: 5px;
+}
+.side-bar-city-input input::placeholder {
+  color: rgb(9, 2, 66);
+}
+.side-bar-content-toggle-head:hover {
+  color: rgb(255, 217, 0);
+}
+@media only screen and (max-width: 768px) {
+  .side-bar-content-toggle-head {
+    font-size: 1rem;
+  }
+  .side-bar-toggle-list {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 1440px) {
+  .side-bar-content-toggle-head {
+    font-size: 1rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .side-bar-content-toggle-head {
+    font-size: 0.7rem;
+  }
+  .side-bar-toggle-list {
+    font-size: 0.7rem;
+  }
+  .side-bar-city-input input::placeholder {
+    font-size: 0.7rem;
+  }
 }

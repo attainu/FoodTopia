@@ -10,3 +10,4 @@ export const RESET = "RESET";
 export const SET_CURRENT_COLLECTION = "SET_CURRENT_COLLECTION";
 export const RESET_RES = "RESET_RES";
 export const TOGGLE_SIDEBAR = "TOGGLE_SIDEBAR";
+export const SET_CUISINES = "SET_CUISINES";

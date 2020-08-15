@@ -5,6 +5,7 @@ import {
   SET_TOP_RES,
   SET_NEARBY_RES_ID,
   TOGGLE_SIDEBAR,
+  SET_CUISINES,
 } from "../actionTypes";
 
 import { fetchTopCollections } from "./collectionsAction";
@@ -39,6 +40,10 @@ export const fetchCity = (cityName) => {
             console.error(err);
             dispatch({ type: LOADING_TOGGLE });
           });
+        fetchCuisines(res.data.location_suggestions[0].id).then((res) => {
+          console.log(res);
+          dispatch({ type: SET_CUISINES, payload: res.cuisines });
+        });
         fetchTopRes(res.data.location_suggestions[0].id).then((res) => {
           dispatch({ type: SET_TOP_RES, payload: res.best_rated_restaurant });
           dispatch({
@@ -64,4 +69,19 @@ export const toggleSideBar = () => {
 
     dispatch({ type: TOGGLE_SIDEBAR });
   };
+};
+
+export const fetchCuisines = (cityId) => {
+  return axios
+    .get(`https://developers.zomato.com/api/v2.1/cuisines?city_id=${cityId}`, {
+      headers: {
+        "user-key": config.API_KEY1,
+      },
+    })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
