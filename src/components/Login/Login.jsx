@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import loginImg from "../../assets/login.svg";
+//import loginImg from "../../assets/login.svg";
+import loginImg from "../../assets/food.jpg";
 import "../Login/Login.css"
 
 class Login extends Component {
@@ -15,6 +16,14 @@ class Login extends Component {
           <div className="image">
             <img src={loginImg} />
           </div>
+       
+          <div className="google-btn" >
+          <img src='https://developers.google.com/identity/images/g-logo.png' />
+            <button id="loginButton">
+            Sign-In with Google
+            </button>
+          </div>
+
           <div className="form">
             <div className="form-group">
               <label htmlFor="username">Username</label>
@@ -32,6 +41,8 @@ class Login extends Component {
           </button>
         </div>
       </div>
+      
+      
     );
   }
 }
