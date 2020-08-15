@@ -9,6 +9,7 @@
     font-family: "Open Sans", sans-serif;
     color: white;
     font-weight: bold;
+    margin-bottom: 13px;
   }
   .base-container .content {
     display: flex;
@@ -23,26 +24,33 @@
     margin-bottom: 20px;
   }
 
-  .base-container .content .google-btn img {
+  /* .base-container .content .google-btn img {
     width: 32px;
     height: 29px;
     border: thin solid #4285f4;
-  }
+  } */
 
   #loginButton {
+    font-size: 12px;
     display: inline-block;
     border-radius: 5px;
     border: thin solid #4285f4;
     box-shadow: 1px 1px 1px #4285f4;
     white-space: nowrap;
-    width: 190px;
-    height: 30px;
+    width: 170px;
+    height: 40px;
     background-color: #4285f4;
     color: white;
+    font-weight: bold;
+    
   }
 
   #loginButton:hover {
     cursor: pointer;
+  }
+
+  #icon {
+   padding-right: 9px;
   }
 
   /* .base-container .content .google-btn loginButton {
@@ -66,7 +74,7 @@
     font-weight: bold;
   }
   .base-container .content .form .form-group label {
-    font-size: 20px;
+    font-size: 13px;
   }
   .base-container .content .form .form-group input {
     margin-top: 6px;
@@ -88,4 +96,6 @@
   .base-container .footer {
     margin-top: 1px;
   }
+
+
   

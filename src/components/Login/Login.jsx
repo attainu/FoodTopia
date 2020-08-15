@@ -18,9 +18,9 @@ class Login extends Component {
           </div>
        
           <div className="google-btn" >
-          <img src='https://developers.google.com/identity/images/g-logo.png' />
             <button id="loginButton">
-            Sign-In with Google
+            <i class="fa fa-google" id="icon" ></i>
+              Sign-In with Google
             </button>
           </div>
 
