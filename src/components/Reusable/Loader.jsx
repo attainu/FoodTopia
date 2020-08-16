@@ -10,8 +10,6 @@ export default class Loader extends Component {
     document.querySelector("body").style.overflow = "hidden";
   }
   componentWillUnmount() {
-    const intervalID = this.startInterval();
-    console.log(intervalID);
     clearInterval(this.intervalId);
     document.querySelector("body").style.overflow = "auto";
   }

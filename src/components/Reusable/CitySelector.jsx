@@ -20,7 +20,9 @@ class CitySelector extends Component {
   };
   setCity = (e) => {
     if (this.props.byLocation) {
-      alert("Click on Stop Viewing by location to select some other city");
+      alert(
+        "Click on Stop Viewing by location in SIDEBAR to select some other city."
+      );
     } else {
       this.props.fetchCity(e.target.innerHTML);
       this.props.toggleSideBar();
@@ -29,7 +31,9 @@ class CitySelector extends Component {
   handleSetCity = (e) => {
     e.preventDefault();
     if (this.props.byLocation) {
-      alert("Click on Stop Viewing by location to select some other city");
+      alert(
+        "Click on Stop Viewing by location in SIDEBAR to select some other city."
+      );
     } else {
       this.props.fetchCity(this.state.cityName);
       this.setState({ cityName: "" });
