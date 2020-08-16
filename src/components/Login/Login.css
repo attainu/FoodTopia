@@ -1,0 +1,211 @@
+.container {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.base-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.base-container .header {
+  font-size: 24px;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 13px;
+}
+.base-container .content {
+  display: flex;
+  flex-direction: column;
+}
+.base-container .content .image {
+  width: 21em;
+}
+.base-container .content .image img {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+/* .base-container .content .google-btn img {
+    width: 32px;
+    height: 29px;
+    border: thin solid #4285f4;
+  } */
+/* width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  } */
+.base-container .header {
+  font-size: 24px;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  font-weight: bold;
+  margin-bottom: 13px;
+}
+.base-container .content {
+  display: flex;
+  flex-direction: column;
+}
+.base-container .content .image {
+  width: 21em;
+}
+.base-container .content .image img {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.base-container .content .google-btn {
+  width: 190px;
+  height: 30px;
+  margin-bottom: 20px;
+  margin-left: 70px;
+}
+
+#loginButton {
+  font-size: 12px;
+  display: inline-block;
+  border-radius: 5px;
+  border: thin solid #4285f4;
+  box-shadow: 1px 1px 1px #4285f4;
+  white-space: nowrap;
+  width: 170px;
+  height: 40px;
+  background-color: #4285f4;
+  color: white;
+  font-weight: bold;
+}
+
+#loginButton:hover {
+  cursor: pointer;
+}
+
+#icon {
+  padding-right: 9px;
+}
+
+/* .base-container .content .google-btn loginButton {
+    width: 190px;
+    height: 190px;
+  } */
+
+.base-container .content .form {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.base-container .content .form .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 290px;
+  height: 70px;
+  color: white;
+  font-weight: bold;
+}
+.base-container .content .form .form-group label {
+  font-size: 13px;
+}
+.base-container .content .form .form-group input {
+  margin-top: 6px;
+  min-width: 18em;
+  height: 37px;
+  padding: 0px 10px;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f3f3f3;
+  border: 0;
+  border-radius: 4px;
+  margin-bottom: 11px;
+  transition: all 250ms ease-in-out;
+}
+.base-container .content .form .form-group input:focus {
+  outline: none;
+  box-shadow: 0px 0px 12px 0.8px #3474dbb2;
+}
+.base-container .footer {
+  margin-top: 1px;
+}
+h6 {
+  color: white;
+  margin-top: 2px;
+  font-size: 0.6rem;
+}
+/* @media only screen and (max-width: 768px) {
+    .base-container {
+      width: 100%;
+      display: none;
+    }
+  }  */
+
+@media only screen and (max-width: 768px) {
+}
+@media only screen and (max-width: 1440px) {
+}
+@media only screen and (max-width: 600px) {
+  .base-container {
+    width: 95%;
+    height: 95%;
+  }
+  .base-container .header {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  .base-container .content .image {
+    width: 80%;
+    margin: auto;
+  }
+  #loginButton {
+    font-size: 8px;
+    white-space: nowrap;
+    width: 130px;
+    height: 20px;
+    margin-top: 10px;
+  }
+  #icon {
+    padding-right: 2px;
+  }
+  h6 {
+    color: white;
+    margin-top: 2px;
+    font-size: 0.6rem;
+  }
+  .base-container .content .form {
+    margin-top: 0px;
+  }
+  .base-container .content .form .form-group label {
+    display: none;
+  }
+  .base-container .content .form .form-group {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 5px;
+    height: 40px;
+    color: white;
+    font-weight: bold;
+  }
+  .base-container .content .form .form-group input {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin: auto;
+    min-width: 12em;
+    height: 25px;
+    font-size: 16px;
+    background-color: #f3f3f3;
+  }
+  .base-container .content .form .form-group input::placeholder {
+    color: rgba(9, 2, 66, 0.678);
+    font-weight: bold;
+  }
+}
