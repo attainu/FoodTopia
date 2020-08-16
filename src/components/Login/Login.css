@@ -1,8 +1,15 @@
+.container {
+  margin-top: 40px;
+  margin-bottom: 40px ;
+}
+
+
 .base-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
   }
   .base-container .header {
     font-size: 24px;
@@ -24,11 +31,12 @@
     margin-bottom: 20px;
   }
 
-  /* .base-container .content .google-btn img {
-    width: 32px;
-    height: 29px;
-    border: thin solid #4285f4;
-  } */
+  .base-container .content .google-btn {
+    width: 190px;
+    height: 30px;
+    margin-bottom: 20px;
+    margin-left: 70px;
+  }
 
   #loginButton {
     font-size: 12px;
