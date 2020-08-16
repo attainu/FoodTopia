@@ -11,6 +11,19 @@ class CitySelector extends Component {
   handleChange = (e) => {
     this.setState({ cityName: e.target.value });
   };
+  setCityByLocation = () => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position.coords.latitude, position.coords.longitude);
+      this.props.setLocation(
+        position.coords.latitude,
+        position.coords.longitude
+      );
+      this.props.fetchCityOnCoOrdinates(
+        position.coords.latitude,
+        position.coords.longitude
+      );
+    });
+  };
   render() {
     return (
       <div style={{ width: "100%", color: "white" }}>
@@ -43,7 +56,10 @@ class CitySelector extends Component {
                   <i class="fa fa-search" type="submit"></i>
                 </button>
               </form>
-              <div onClick={this.setCity} className="side-bar-toggle-list">
+              <div
+                onClick={this.setCityByLocation}
+                className="side-bar-toggle-list"
+              >
                 <i class="fa fa-street-view"></i>
                 Detect Your Location Or
               </div>

@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchCity } from "../redux/actions/cityActions";
+import {
+  fetchCity,
+  fetchCategories,
+  setLocation,
+  fetchCityOnCoOrdinates,
+} from "../redux/actions/cityActions";
 import { fetchTopCollections } from "../redux/actions/collectionsAction";
 import { fetchNearbyRes } from "../redux/actions/citiesTopResActions";
 import TopCollections from "../components/TopCollections";
@@ -12,6 +17,20 @@ import "../Styles/HomePage.css";
 
 class Home extends Component {
   componentDidMount() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position.coords.latitude, position.coords.longitude);
+      this.props.setLocation(
+        position.coords.latitude,
+        position.coords.longitude
+      );
+      this.props.fetchCityOnCoOrdinates(
+        position.coords.latitude,
+        position.coords.longitude
+      );
+    });
+    // if (this.props.cityState.currentLocation) {
+    //   console.log("Found");
+    // }
     if (!this.props.cityState.selectedCityId) {
       if (this.props.cityState.selectedCity === "") {
         this.props.fetchCity("bengaluru");
@@ -21,10 +40,8 @@ class Home extends Component {
     } else {
       return;
     }
+    this.props.fetchCategories();
     window.scrollTo(0, 0);
-    navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position.coords.latitude, position.coords.longitude);
-    });
   }
   componentDidUpdate() {
     window.scrollTo(0, 0);
@@ -69,4 +86,7 @@ export default connect(mapStateToProps, {
   fetchCity,
   fetchTopCollections,
   fetchNearbyRes,
+  fetchCategories,
+  setLocation,
+  fetchCityOnCoOrdinates,
 })(Home);

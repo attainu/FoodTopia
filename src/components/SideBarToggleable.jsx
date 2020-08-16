@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { toggleSideBar } from "../redux/actions/cityActions";
 import CitySelector from "../components/Reusable/CitySelector";
 import CuisineSelector from "../components/Reusable/CuisineSelector";
+import CategorySelector from "../components/Reusable/CategorySelector";
+
 import "../Styles/SideBarToggleable.css";
 class SideBarToggleable extends Component {
   state = {
@@ -48,6 +50,7 @@ class SideBarToggleable extends Component {
             <div className="side-bar-content">
               <CitySelector />
               <CuisineSelector />
+              <CategorySelector />
               {this.widthRender()}
             </div>
             <div className="side-bar-extra" onClick={this.props.toggleSideBar}>

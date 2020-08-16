@@ -3,6 +3,8 @@ import {
   LOADING_TOGGLE,
   TOGGLE_SIDEBAR,
   SET_CUISINES,
+  SET_CATEGORIES,
+  SET_LOCATION,
 } from "../actionTypes";
 
 const initialState = {
@@ -11,6 +13,7 @@ const initialState = {
   loading: false,
   sideBarstate: true,
   cuisines: null,
+  currentLocation: null,
 };
 
 const cityReducer = (state = initialState, action) => {
@@ -37,6 +40,16 @@ const cityReducer = (state = initialState, action) => {
       return {
         ...state,
         sideBarstate: !state.sideBarstate,
+      };
+    case SET_CATEGORIES:
+      return {
+        ...state,
+        categories: payload,
+      };
+    case SET_LOCATION:
+      return {
+        ...state,
+        currentLocation: payload,
       };
     default:
       return {

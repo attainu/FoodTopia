@@ -1,42 +1,42 @@
 import React, { Component } from "react";
 import "../../Styles/SideBarToggleable.css";
 import { connect } from "react-redux";
-class CuisineSelector extends Component {
+class CategorySelector extends Component {
   state = {
-    cuisineToggle: false,
+    categoryToggle: false,
   };
-  cuisineToggle = () => {
-    this.setState({ cuisineToggle: !this.state.cuisineToggle });
+  categoryToggle = () => {
+    this.setState({ categoryToggle: !this.state.categoryToggle });
   };
   render() {
     return (
       <div style={{ width: "100%", color: "white" }}>
         <div className="side-bar-content-toggle">
           <div
-            onClick={this.cuisineToggle}
+            onClick={this.categoryToggle}
             className="side-bar-content-toggle-head"
           >
-            Select Cuisine
-            {this.state.cuisineToggle ? (
+            Select Category
+            {this.state.categoryToggle ? (
               <i class="fa fa-chevron-up"></i>
             ) : (
               <i class="fa fa-chevron-down"></i>
             )}
           </div>
-          {this.state.cuisineToggle ? (
+          {this.state.categoryToggle ? (
             <React.Fragment>
-              {!this.props.cuisines ? (
+              {!this.props.categories ? (
                 <React.Fragment></React.Fragment>
               ) : (
                 <div className="side-bar-list-container">
-                  {this.props.cuisines.map((cuisine) => {
+                  {this.props.categories.map((category) => {
                     return (
                       <div
                         onClick={this.getCuisine}
                         className="side-bar-toggle-list"
-                        key={cuisine.cuisine.cuisine_id}
+                        key={category.categories.id}
                       >
-                        {cuisine.cuisine.cuisine_name}
+                        {category.categories.name}
                       </div>
                     );
                   })}
@@ -54,7 +54,7 @@ class CuisineSelector extends Component {
 
 const mapStateToProps = (storeState) => {
   return {
-    cuisines: storeState.cityReducer.cuisines,
+    categories: storeState.cityReducer.categories,
   };
 };
-export default connect(mapStateToProps, null)(CuisineSelector);
+export default connect(mapStateToProps, null)(CategorySelector);

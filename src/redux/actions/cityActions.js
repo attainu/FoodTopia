@@ -6,6 +6,8 @@ import {
   SET_NEARBY_RES_ID,
   TOGGLE_SIDEBAR,
   SET_CUISINES,
+  SET_CATEGORIES,
+  SET_LOCATION,
 } from "../actionTypes";
 
 import { fetchTopCollections } from "./collectionsAction";
@@ -62,7 +64,22 @@ export const fetchCity = (cityName) => {
       });
   };
 };
-
+export const fetchCategories = () => {
+  return (dispatch) => {
+    axios
+      .get(`https://developers.zomato.com/api/v2.1/categories`, {
+        headers: {
+          "user-key": config.API_KEY1,
+        },
+      })
+      .then((res) => {
+        dispatch({ type: SET_CATEGORIES, payload: res.data.categories });
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+};
 export const toggleSideBar = () => {
   return (dispatch) => {
     window.scrollTo(0, 0);
@@ -84,4 +101,33 @@ export const fetchCuisines = (cityId) => {
     .catch((err) => {
       console.error(err);
     });
+};
+
+export const setLocation = (lat, long) => {
+  return (dispatch) => {
+    const loc = { lat: lat, long: long };
+    dispatch({ type: SET_LOCATION, payload: loc });
+  };
+};
+
+export const fetchCityOnCoOrdinates = (lat, long) => {
+  return (dispatch) => {
+    console.log("fetching location");
+
+    axios(
+      `https://developers.zomato.com/api/v2.1/cities?lat=${lat}&lon=${long}`,
+      {
+        headers: {
+          "user-key": config.API_KEY1,
+        },
+      }
+    )
+      .then((res) => {
+        console.log("fetching success");
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 };
