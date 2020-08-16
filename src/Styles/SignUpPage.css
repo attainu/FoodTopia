@@ -64,7 +64,7 @@
   background-color: rgb(255, 217, 0);
   width: 100%;
   position: absolute;
-  right: -34%;
+  right: -54%;
   border-radius: 6px;
   z-index: 1;
   transition: all 400ms ease-in-out;
@@ -104,8 +104,58 @@
   cursor: pointer;
 }
 .btn:hover {
-  background-color: #15e915;
+  background-color: rgb(9, 2, 66);
+  color: rgb(255, 217, 0);
+  border: 1px solid rgb(255, 217, 0);
 }
 .btn:focus {
   outline: none;
+}
+
+@media only screen and (max-width: 768px) {
+}
+@media only screen and (max-width: 1440px) {
+}
+@media only screen and (max-width: 600px) {
+  .login .container {
+    width: 90%;
+    height: 65vh;
+    margin-bottom: 100px;
+  }
+  .login .right-side {
+    display: inline-block;
+    height: 20%;
+    text-align: center;
+    background-color: rgb(255, 217, 0);
+    width: 80%;
+    position: absolute;
+    top: 2.5%;
+    left: 10%;
+    border-radius: 6px;
+    z-index: 1;
+    transition: all 400ms ease-in-out;
+    cursor: pointer;
+    box-shadow: 0px 0px 12px 2px rgba(15, 15, 15, 0.281);
+  }
+  .login .right-side .text {
+    margin-top: 10px;
+  }
+
+  .login .right-side.right {
+    right: 0px;
+    display: flex;
+    left: 10%;
+    top: 62%;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .login .right-side.right .text {
+    margin-bottom: 10px;
+    width: 100px;
+  }
+  .btn {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 10px;
+  }
 }

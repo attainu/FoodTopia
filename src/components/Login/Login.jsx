@@ -4,7 +4,6 @@ import loginImg from "../../assets/food.jpg";
 import "../Login/Login.css";
 //import Responsive from 'react-responsive-decorator';
 
-
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -18,22 +17,22 @@ class Login extends Component {
           <div className="image">
             <img src={loginImg} />
           </div>
-       
-          <div className="google-btn" >
+
+          <div className="google-btn">
             <button id="loginButton">
-            <i class="fa fa-google" id="icon" ></i>
+              <i class="fa fa-google" id="icon"></i>
               Sign-In with Google
             </button>
           </div>
-
+          <h6>OR</h6>
           <div className="form">
             <div className="form-group">
               <label htmlFor="username">Username</label>
-              <input type="text" name="username" placeholder="username" />
+              <input type="email" name="email" placeholder="Email" />
             </div>
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input type="password" name="password" placeholder="password" />
+              <input type="password" name="password" placeholder="Password" />
             </div>
           </div>
         </div>
@@ -43,8 +42,6 @@ class Login extends Component {
           </button>
         </div>
       </div>
-      
-      
     );
   }
 }
