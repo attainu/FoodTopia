@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import loginImg from "../../assets/login.svg";
+import loginImg from "../../assets/food.jpg";
 import "../Login/Login.css"
 
 class Register extends Component {

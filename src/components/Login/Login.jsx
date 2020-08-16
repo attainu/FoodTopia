@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 //import loginImg from "../../assets/login.svg";
 import loginImg from "../../assets/food.jpg";
-import "../Login/Login.css"
+import "../Login/Login.css";
+import Responsive from 'react-responsive-decorator';
 
+@Responsive
 class Login extends Component {
   constructor(props) {
     super(props);
