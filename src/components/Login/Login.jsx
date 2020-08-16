@@ -3,10 +3,47 @@ import React, { Component } from "react";
 import loginImg from "../../assets/food.jpg";
 import "../Login/Login.css";
 //import Responsive from 'react-responsive-decorator';
+import { GoogleLogin, GoogleLogout } from "react-google-login";
+
+const CLIENT_ID = "<your Client ID>";
 
 class Login extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      isLogined: false,
+      accessToken: "",
+    };
+
+    this.login = this.login.bind(this);
+    this.handleLoginFailure = this.handleLoginFailure.bind(this);
+    this.logout = this.logout.bind(this);
+    this.handleLogoutFailure = this.handleLogoutFailure.bind(this);
+  }
+
+  login(response) {
+    if (response.accessToken) {
+      this.setState((state) => ({
+        isLogined: true,
+        accessToken: response.accessToken,
+      }));
+    }
+  }
+
+  logout(response) {
+    this.setState((state) => ({
+      isLogined: false,
+      accessToken: "",
+    }));
+  }
+
+  handleLoginFailure(response) {
+    alert("Failed to log in");
+  }
+
+  handleLogoutFailure(response) {
+    alert("Failed to log out");
   }
 
   render() {
@@ -19,12 +56,31 @@ class Login extends Component {
           </div>
 
           <div className="google-btn">
-            <button id="loginButton">
-              <i class="fa fa-google" id="icon"></i>
-              Sign-In with Google
-            </button>
+            {this.state.isLogined ? (
+              <GoogleLogout
+                clientId={CLIENT_ID}
+                buttonText="Sign-out"
+                onLogoutSuccess={this.logout}
+                onFailure={this.handleLogoutFailure}
+              ></GoogleLogout>
+            ) : (
+              <GoogleLogin
+                clientId={CLIENT_ID}
+                buttonText="Sign-in with Google"
+                onSuccess={this.login}
+                onFailure={this.handleLoginFailure}
+                cookiePolicy={"single_host_origin"}
+                responseType="code,token"
+              />
+            )}
+            {this.state.accessToken ? (
+              <h5>
+                Your Access Token: <br />
+                <br /> {this.state.accessToken}
+              </h5>
+            ) : null}
           </div>
-          <h6>OR</h6>
+
           <div className="form">
             <div className="form-group">
               <label htmlFor="username">Username</label>
