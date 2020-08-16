@@ -8,7 +8,6 @@ import App from "./App";
 import "./Styles/index.css";
 
 //
-import createHistory from "history/createBrowserHistory";
 
 ReactDOM.render(
   <React.StrictMode>

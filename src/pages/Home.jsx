@@ -17,33 +17,43 @@ import "../Styles/HomePage.css";
 
 class Home extends Component {
   componentDidMount() {
-    navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position.coords.latitude, position.coords.longitude);
-      this.props.setLocation(
-        position.coords.latitude,
-        position.coords.longitude
-      );
-      this.props.fetchCityOnCoOrdinates(
-        position.coords.latitude,
-        position.coords.longitude
-      );
-    });
-    // if (this.props.cityState.currentLocation) {
-    //   console.log("Found");
-    // }
-    if (!this.props.cityState.selectedCityId) {
-      if (this.props.cityState.selectedCity === "") {
-        this.props.fetchCity("bengaluru");
-      } else {
-        this.props.fetchCity(this.props.cityState.selectedCity);
-      }
+    if (this.props.cityState.byLocation) {
+      this.props.fetchCity(this.props.cityState.userCity);
     } else {
-      return;
+      if (!this.props.cityState.selectedCityId) {
+        if (this.props.cityState.selectedCity === "") {
+          this.props.fetchCity("bengaluru");
+        } else {
+          this.props.fetchCity(this.props.cityState.selectedCity);
+        }
+      } else {
+        return;
+      }
     }
     this.props.fetchCategories();
     window.scrollTo(0, 0);
   }
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
+    if (prevProps.cityState.byLocation != this.props.cityState.byLocation) {
+      if (this.props.cityState.byLocation) {
+        console.log("COMPONENT UPDATES");
+        this.props.fetchCity(this.props.cityState.userCity);
+      } else {
+        if (!this.props.cityState.selectedCityId) {
+          if (this.props.cityState.selectedCity === "") {
+            this.props.fetchCity("bengaluru");
+          } else {
+            this.props.fetchCity(this.props.cityState.selectedCity);
+          }
+        } else {
+          return;
+        }
+      }
+    }
+    if (
+      prevProps.cityState.selectedCityId != this.props.cityState.selectedCityId
+    ) {
+    }
     window.scrollTo(0, 0);
   }
   render() {

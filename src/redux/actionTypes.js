@@ -13,3 +13,5 @@ export const TOGGLE_SIDEBAR = "TOGGLE_SIDEBAR";
 export const SET_CUISINES = "SET_CUISINES";
 export const SET_CATEGORIES = "SET_CATEGORIES";
 export const SET_LOCATION = "SET_LOCATION";
+export const BY_LOCATION = "BY_LOCATION";
+export const SET_USER_CITY = "SET_USER_CITY";

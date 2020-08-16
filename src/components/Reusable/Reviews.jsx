@@ -34,7 +34,6 @@ class Reviews extends Component {
     }
   };
   render() {
-    console.log(this.expression);
     return (
       <div id="header-reviews">
         <h3>User Reviews </h3>

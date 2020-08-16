@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchCity } from "../redux/actions/cityActions";
+import { fetchCity, byLocation } from "../redux/actions/cityActions";
 import { fetchTopCollections } from "../redux/actions/collectionsAction";
 import CollectionCard from "./Reusable/CollectionCard";
 // import ImageAndWelcome from "../components/ImageAndWelcome";
@@ -9,6 +9,9 @@ import "../Styles/HomePage.css";
 import { Link } from "react-router-dom";
 
 class TopCollections extends Component {
+  byLocation = () => {
+    this.props.byLocation();
+  };
   render() {
     return (
       <React.Fragment>
@@ -16,6 +19,7 @@ class TopCollections extends Component {
           <h1>
             Showing Top Collections For {this.props.cityState.selectedCity}
           </h1>
+
           <div className="my-cards-container">
             <React.Fragment>
               {this.props.collections.map((collection) => {
@@ -47,6 +51,8 @@ const mapStateToProps = (storeState) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchCity, fetchTopCollections })(
-  TopCollections
-);
+export default connect(mapStateToProps, {
+  fetchCity,
+  fetchTopCollections,
+  byLocation,
+})(TopCollections);

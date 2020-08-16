@@ -13,7 +13,6 @@ export const fetchTopRes = (city_id) => {
       }
     )
     .then((res) => {
-      console.log(JSON.stringify(res.data.best_rated_restaurant[0].restaurant));
       return res.data;
     })
     .catch((err) => {
@@ -44,6 +43,21 @@ export const fetchNearbyRes = (resIdArray) => {
   }).then(() => {
     return nearByRes;
   });
+};
+
+export const fetchNearBy2 = (resId, nearByRes) => {
+  axios
+    .get(`https://developers.zomato.com/api/v2.1/restaurant?res_id=${resId}`, {
+      headers: {
+        "user-key": config.API_KEY1,
+      },
+    })
+    .then((res) => {
+      nearByRes.push(res.data);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };
 
 // rules_version = '2';

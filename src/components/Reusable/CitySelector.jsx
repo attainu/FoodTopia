@@ -1,5 +1,12 @@
 import React, { Component } from "react";
 import "../../Styles/SideBarToggleable.css";
+import {
+  setLocation,
+  fetchCityOnCoOrdinates,
+  fetchCity,
+  toggleSideBar,
+} from "../../redux/actions/cityActions";
+import { connect } from "react-redux";
 class CitySelector extends Component {
   state = {
     cityToggle: false,
@@ -11,7 +18,36 @@ class CitySelector extends Component {
   handleChange = (e) => {
     this.setState({ cityName: e.target.value });
   };
+  setCity = (e) => {
+    if (this.props.byLocation) {
+      alert("Click on Stop Viewing by location to select some other city");
+    } else {
+      this.props.fetchCity(e.target.innerHTML);
+      this.props.toggleSideBar();
+    }
+  };
+  handleSetCity = (e) => {
+    e.preventDefault();
+    if (this.props.byLocation) {
+      alert("Click on Stop Viewing by location to select some other city");
+    } else {
+      this.props.fetchCity(this.state.cityName);
+      this.setState({ cityName: "" });
+      this.props.toggleSideBar();
+    }
+  };
   setCityByLocation = () => {
+    navigator.permissions
+      .query({ name: "geolocation" })
+      .then((permissionStatus) => {
+        if (permissionStatus.state === "denied") {
+          alert(
+            "Please Grant Permission to Access Location in browser settings to continue"
+          );
+        } else {
+          return;
+        }
+      });
     navigator.geolocation.getCurrentPosition((position) => {
       console.log(position.coords.latitude, position.coords.longitude);
       this.props.setLocation(
@@ -34,9 +70,9 @@ class CitySelector extends Component {
           >
             Select City
             {this.state.cityToggle ? (
-              <i class="fa fa-chevron-up"></i>
+              <i className="fa fa-chevron-up"></i>
             ) : (
-              <i class="fa fa-chevron-down"></i>
+              <i className="fa fa-chevron-down"></i>
             )}
           </div>
           {this.state.cityToggle ? (
@@ -56,13 +92,19 @@ class CitySelector extends Component {
                   <i class="fa fa-search" type="submit"></i>
                 </button>
               </form>
-              <div
-                onClick={this.setCityByLocation}
-                className="side-bar-toggle-list"
-              >
-                <i class="fa fa-street-view"></i>
-                Detect Your Location Or
-              </div>
+              {this.props.byLocation ? (
+                <div onClick={this.props.func} className="side-bar-toggle-list">
+                  Stop Viewing By Location
+                </div>
+              ) : (
+                <div
+                  onClick={this.setCityByLocation}
+                  className="side-bar-toggle-list"
+                >
+                  <i class="fa fa-street-view"></i>
+                  Detect Your Location Or
+                </div>
+              )}
 
               <div onClick={this.setCity} className="side-bar-toggle-list">
                 Ahmedabad
@@ -97,4 +139,9 @@ class CitySelector extends Component {
     );
   }
 }
-export default CitySelector;
+export default connect(null, {
+  setLocation,
+  fetchCityOnCoOrdinates,
+  fetchCity,
+  toggleSideBar,
+})(CitySelector);

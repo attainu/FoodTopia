@@ -8,6 +8,8 @@ import {
   SET_CUISINES,
   SET_CATEGORIES,
   SET_LOCATION,
+  BY_LOCATION,
+  SET_USER_CITY,
 } from "../actionTypes";
 
 import { fetchTopCollections } from "./collectionsAction";
@@ -123,11 +125,21 @@ export const fetchCityOnCoOrdinates = (lat, long) => {
       }
     )
       .then((res) => {
-        console.log("fetching success");
-        console.log(res.data);
+        console.log(res.data.location_suggestions[0]);
+        dispatch({
+          type: SET_USER_CITY,
+          payload: res.data.location_suggestions[0],
+        });
+        dispatch({ type: BY_LOCATION });
       })
       .catch((err) => {
         console.error(err);
       });
+  };
+};
+
+export const byLocation = () => {
+  return (dispatch) => {
+    dispatch({ type: BY_LOCATION });
   };
 };

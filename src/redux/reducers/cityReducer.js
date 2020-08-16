@@ -5,6 +5,8 @@ import {
   SET_CUISINES,
   SET_CATEGORIES,
   SET_LOCATION,
+  BY_LOCATION,
+  SET_USER_CITY,
 } from "../actionTypes";
 
 const initialState = {
@@ -14,6 +16,9 @@ const initialState = {
   sideBarstate: true,
   cuisines: null,
   currentLocation: null,
+  byLocation: false,
+  userCity: null,
+  userCityId: null,
 };
 
 const cityReducer = (state = initialState, action) => {
@@ -50,6 +55,17 @@ const cityReducer = (state = initialState, action) => {
       return {
         ...state,
         currentLocation: payload,
+      };
+    case SET_USER_CITY:
+      return {
+        ...state,
+        userCity: payload.name,
+        userCityId: payload.id,
+      };
+    case BY_LOCATION:
+      return {
+        ...state,
+        byLocation: !state.byLocation,
       };
     default:
       return {

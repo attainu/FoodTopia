@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { toggleSideBar } from "../redux/actions/cityActions";
+import { toggleSideBar, byLocation } from "../redux/actions/cityActions";
 import CitySelector from "../components/Reusable/CitySelector";
 import CuisineSelector from "../components/Reusable/CuisineSelector";
 import CategorySelector from "../components/Reusable/CategorySelector";
@@ -48,7 +48,10 @@ class SideBarToggleable extends Component {
         {this.props.sideBarState ? (
           <section className="side-bar">
             <div className="side-bar-content">
-              <CitySelector />
+              <CitySelector
+                byLocation={this.props.byLocationState}
+                func={this.props.byLocation}
+              />
               <CuisineSelector />
               <CategorySelector />
               {this.widthRender()}
@@ -67,6 +70,9 @@ class SideBarToggleable extends Component {
 const mapStateToProps = (storeState) => {
   return {
     sideBarState: storeState.cityReducer.sideBarstate,
+    byLocationState: storeState.cityReducer.byLocation,
   };
 };
-export default connect(mapStateToProps, { toggleSideBar })(SideBarToggleable);
+export default connect(mapStateToProps, { toggleSideBar, byLocation })(
+  SideBarToggleable
+);
