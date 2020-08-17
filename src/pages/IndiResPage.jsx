@@ -19,7 +19,6 @@ class IndiResPage extends Component {
   render() {
     return (
       <section id="header">
-        <div className="top-spacing"></div>
         <React.Fragment>
           {!this.props.currentRes.currentRes ? (
             <div className="loader-div">

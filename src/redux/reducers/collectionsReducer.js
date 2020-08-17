@@ -16,7 +16,7 @@ const collectionsReducer = (state = initialState, action) => {
   const { type, payload } = action;
   switch (type) {
     case SET_COLLECTIONS:
-      let topCollections = payload.filter((collection, index) => index < 4);
+      let topCollections = payload.filter((collection, index) => index < 5);
       return {
         ...state,
         allCollections: payload,

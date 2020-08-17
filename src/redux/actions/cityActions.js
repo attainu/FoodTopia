@@ -10,6 +10,7 @@ import {
   SET_LOCATION,
   BY_LOCATION,
   SET_USER_CITY,
+  SET_ESTABLISHMENTS,
 } from "../actionTypes";
 
 import { fetchTopCollections } from "./collectionsAction";
@@ -32,6 +33,7 @@ export const fetchCity = (cityName) => {
       )
       .then((res) => {
         dispatch({ type: SET_CITY, payload: res.data.location_suggestions[0] });
+        localStorage.setItem("foodtopia-city", cityName);
         fetchTopCollections(res.data.location_suggestions[0].id)
           .then((res) => {
             dispatch({
@@ -47,6 +49,9 @@ export const fetchCity = (cityName) => {
         fetchCuisines(res.data.location_suggestions[0].id).then((res) => {
           console.log(res);
           dispatch({ type: SET_CUISINES, payload: res.cuisines });
+        });
+        fetchEstablishments(res.data.location_suggestions[0].id).then((res) => {
+          dispatch({ type: SET_ESTABLISHMENTS, payload: res.establishments });
         });
         fetchTopRes(res.data.location_suggestions[0].id).then((res) => {
           dispatch({ type: SET_TOP_RES, payload: res.best_rated_restaurant });
@@ -97,6 +102,24 @@ export const fetchCuisines = (cityId) => {
         "user-key": config.API_KEY1,
       },
     })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+};
+
+export const fetchEstablishments = (cityId) => {
+  return axios
+    .get(
+      `https://developers.zomato.com/api/v2.1/establishments?city_id=${cityId}`,
+      {
+        headers: {
+          "user-key": config.API_KEY1,
+        },
+      }
+    )
     .then((res) => {
       return res.data;
     })

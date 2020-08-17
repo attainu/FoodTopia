@@ -20,7 +20,6 @@ class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="top-spacing"></div>
         <section className="home-section">
           {this.props.cityState.loading ? (
             <div className="loader-div">

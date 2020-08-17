@@ -3,17 +3,17 @@ import "../../Styles/SideBarToggleable.css";
 import { connect } from "react-redux";
 import { withRouter, Link } from "react-router-dom";
 import { toggleSideBar } from "../../redux/actions/cityActions";
-class CuisineSelector extends Component {
+class EstablishmentSelector extends Component {
   state = {
-    cuisineToggle: false,
+    establishmentToggle: false,
   };
-  cuisineToggle = () => {
-    this.setState({ cuisineToggle: !this.state.cuisineToggle });
+  establishmentToggle = () => {
+    this.setState({ establishmentToggle: !this.state.establishmentToggle });
   };
-  getCuisine = (e) => {
+  getEstablishment = (e) => {
     this.props.history.push(
-      `/type/cuisine/${e.target.innerHTML}/${e.target.getAttribute(
-        "cuisineId"
+      `/type/establishment/${e.target.innerHTML}/${e.target.getAttribute(
+        "establishmentId"
       )}`
     );
     this.props.toggleSideBar();
@@ -23,31 +23,31 @@ class CuisineSelector extends Component {
       <div style={{ width: "100%", color: "white" }}>
         <div className="side-bar-content-toggle">
           <div
-            onClick={this.cuisineToggle}
+            onClick={this.establishmentToggle}
             className="side-bar-content-toggle-head"
           >
-            Select Cuisine
-            {this.state.cuisineToggle ? (
+            Select Establishment
+            {this.state.establishmentToggle ? (
               <i class="fa fa-chevron-up"></i>
             ) : (
               <i class="fa fa-chevron-down"></i>
             )}
           </div>
-          {this.state.cuisineToggle ? (
+          {this.state.establishmentToggle ? (
             <React.Fragment>
-              {!this.props.cuisines ? (
-                <Link to="/">Click Here To load All Cuisines</Link>
+              {!this.props.establishments ? (
+                <Link to="/">Click Here To load All Establishments</Link>
               ) : (
                 <div className="side-bar-list-container">
-                  {this.props.cuisines.map((cuisine) => {
+                  {this.props.establishments.map((establishment) => {
                     return (
                       <div
-                        onClick={this.getCuisine}
+                        onClick={this.getEstablishment}
                         className="side-bar-toggle-list"
-                        key={cuisine.cuisine.cuisine_id}
-                        cuisineId={cuisine.cuisine.cuisine_id}
+                        key={establishment.establishment.id}
+                        establishmentId={establishment.establishment.id}
                       >
-                        {cuisine.cuisine.cuisine_name}
+                        {establishment.establishment.name}
                       </div>
                     );
                   })}
@@ -65,9 +65,9 @@ class CuisineSelector extends Component {
 
 const mapStateToProps = (storeState) => {
   return {
-    cuisines: storeState.cityReducer.cuisines,
+    establishments: storeState.cityReducer.establishments,
   };
 };
 export default connect(mapStateToProps, { toggleSideBar })(
-  withRouter(CuisineSelector)
+  withRouter(EstablishmentSelector)
 );

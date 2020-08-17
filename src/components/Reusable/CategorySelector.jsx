@@ -1,12 +1,22 @@
 import React, { Component } from "react";
 import "../../Styles/SideBarToggleable.css";
+import { withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { toggleSideBar } from "../../redux/actions/cityActions";
 class CategorySelector extends Component {
   state = {
     categoryToggle: false,
   };
   categoryToggle = () => {
     this.setState({ categoryToggle: !this.state.categoryToggle });
+  };
+  getCategory = (e) => {
+    this.props.history.push(
+      `/type/category/${e.target.innerHTML}/${e.target.getAttribute(
+        "categoryId"
+      )}`
+    );
+    this.props.toggleSideBar();
   };
   render() {
     return (
@@ -26,15 +36,16 @@ class CategorySelector extends Component {
           {this.state.categoryToggle ? (
             <React.Fragment>
               {!this.props.categories ? (
-                <React.Fragment></React.Fragment>
+                <Link to="/">Click Here To load All Categories</Link>
               ) : (
                 <div className="side-bar-list-container">
                   {this.props.categories.map((category) => {
                     return (
                       <div
-                        onClick={this.getCuisine}
+                        onClick={this.getCategory}
                         className="side-bar-toggle-list"
                         key={category.categories.id}
+                        categoryId={category.categories.id}
                       >
                         {category.categories.name}
                       </div>
@@ -57,4 +68,6 @@ const mapStateToProps = (storeState) => {
     categories: storeState.cityReducer.categories,
   };
 };
-export default connect(mapStateToProps, null)(CategorySelector);
+export default connect(mapStateToProps, { toggleSideBar })(
+  withRouter(CategorySelector)
+);

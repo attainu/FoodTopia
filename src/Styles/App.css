@@ -4,7 +4,7 @@
 
 section {
   min-height: 95vh;
-  width: 100%;
+  width: 100vw;
 }
 .loader-div {
   width: 100vw;
@@ -48,11 +48,12 @@ section {
   overflow: hidden;
 }
 .side-bar-content {
+  overflow: scroll;
   width: 15vw;
   height: 100vh;
   background-color: #6ebe3b;
   display: inline-block;
-  padding-bottom: 20px;
+  padding-bottom: 100vh;
 }
 .side-bar-content::-webkit-scrollbar {
   display: none;
@@ -61,15 +62,53 @@ section {
   margin-left: 30%;
   width: 85vw;
   height: 100vh;
-  background-color: transparent;
+  background-color: rgba(5, 5, 5, 0.582);
   position: absolute;
   top: 0px;
   right: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(255, 217, 0);
+  color: #6ebe3b;
   text-shadow: 0px 0px 10px white;
+}
+.search-bar-container {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10vh;
+}
+.search-bar-container .input {
+  width: 65vw;
+  margin-right: 10px;
+  padding-left: 10px;
+  height: 35px;
+  border: 1px solid #6ebe3b;
+  border-radius: 5px;
+}
+.search-bar-container .input:focus {
+  border: none;
+  outline: none;
+  box-shadow: 0px 0px 10px #6ebe3b;
+}
+.search-bar-container button {
+  border: none;
+  outline: none;
+  padding: 5px 5px;
+  background: #6ebe3b;
+  border-radius: 5px;
+  color: white;
+}
+.search-bar-container button:hover {
+  border: 1px solid #6ebe3b;
+  background: white;
+  color: #6ebe3b;
+}
+.search-bar-container button i {
+  margin-right: 5px;
 }
 @media only screen and (max-width: 768px) {
   .side-bar-content {
@@ -91,6 +130,9 @@ section {
   .hamburger {
     font-size: 2rem;
   }
+  .search-bar-container {
+    margin-top: 12vh;
+  }
   .brand {
     margin-right: auto;
     font-size: 1rem;
@@ -101,6 +143,15 @@ section {
   .side-bar-extra {
     width: 50%;
   }
+  .search-bar-container .input {
+    width: 90vw;
+  }
+  .search-bar-container .input::placeholder {
+    font-size: 12px;
+  }
+  .search-bar-container button {
+    margin: auto;
+    width: 90vw;
+    margin-top: 10px;
+  }
 }
-
-

@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Container,
-  Button,
-  lightColors,
-  darkColors,
-} from "react-floating-action-button";
+import { Button, lightColors } from "react-floating-action-button";
 import { Link } from "react-router-dom";
 
 const FloatingButton = () => {

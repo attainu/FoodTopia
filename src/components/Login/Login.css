@@ -82,11 +82,7 @@
 .base-container .footer {
   margin-top: 1px;
 }
-h6 {
-  color: white;
-  margin-top: 2px;
-  font-size: 0.6rem;
-}
+
 /* @media only screen and (max-width: 768px) {
     .base-container {
       width: 100%;
@@ -94,7 +90,7 @@ h6 {
     }
   }  */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 769px) {
 }
 @media only screen and (max-width: 1440px) {
 }
@@ -106,7 +102,6 @@ h6 {
   .base-container .header {
     font-size: 16px;
     font-family: "Open Sans", sans-serif;
-    color: white;
     font-weight: bold;
     margin-bottom: 8px;
   }

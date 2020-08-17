@@ -74,6 +74,8 @@
 }
 .login .right-side.right {
   right: -40%;
+  display: flex;
+  flex-direction: column;
   align-items: flex-end;
 }
 .login .right-side.right:hover {
@@ -113,24 +115,61 @@
   outline: none;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 769px) {
+  .login .container {
+    width: 90%;
+    height: 85vh;
+    margin-bottom: 100px;
+    margin-top: 50px;
+  }
+  .login .right-side {
+    width: 80%;
+  }
+  .login .right-side.right {
+    width: 80%;
+    right: -30%;
+    align-items: flex-end;
+  }
+  .login .right-side.right:hover {
+    width: 80%;
+    right: -30%;
+  }
+  .login .right-side.left {
+    width: 80%;
+    right: 40%;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0px;
+  }
+  .login .right-side.left .text {
+    margin-left: 25px;
+  }
+  .login .right-side.right .text {
+    margin-right: 35px;
+  }
+  .login .right-side.left:hover {
+    width: 80%;
+    right: 40%;
+  }
 }
-@media only screen and (max-width: 1440px) {
-}
+
 @media only screen and (max-width: 600px) {
   .login .container {
     width: 90%;
     height: 65vh;
     margin-bottom: 100px;
+    margin-top: 100px;
   }
   .login .right-side {
+    padding: 0px;
     display: inline-block;
     height: 20%;
     text-align: center;
     background-color: #6ebe3b;
     width: 80%;
     position: absolute;
-    top: 2.5%;
+    top: 11%;
     left: 10%;
     border-radius: 6px;
     z-index: 1;
@@ -140,19 +179,22 @@
   }
   .login .right-side .text {
     margin-top: 10px;
+    width: 80%;
   }
 
   .login .right-side.right {
     right: 0px;
     display: flex;
     left: 10%;
-    top: 62%;
+    top: 70%;
     justify-content: flex-end;
     align-items: center;
+    padding: 0px;
   }
   .login .right-side.right .text {
+    margin: auto;
     margin-bottom: 10px;
-    width: 100px;
+    width: 100%;
   }
   .btn {
     font-size: 12px;

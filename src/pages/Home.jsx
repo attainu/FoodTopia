@@ -17,8 +17,8 @@ import "../Styles/HomePage.css";
 
 class Home extends Component {
   componentDidMount() {
-    if (this.props.cityState.byLocation) {
-      this.props.fetchCity(this.props.cityState.userCity);
+    if (localStorage.getItem("foodtopia-city")) {
+      this.props.fetchCity(localStorage.getItem("foodtopia-city"));
     } else {
       if (!this.props.cityState.selectedCityId) {
         if (this.props.cityState.selectedCity === "") {
@@ -59,7 +59,6 @@ class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="top-spacing"></div>
         <section className="home-section">
           {this.props.cityState.loading ? (
             <div className="loader-div">
@@ -67,13 +66,15 @@ class Home extends Component {
             </div>
           ) : (
             <React.Fragment>
-              <h6 style={{ textAlign: "center" }}>
+              <h6 style={{ textAlign: "center", color: "black" }}>
                 Change Your City in the SideBar
               </h6>
               {!this.props.collectionState ? (
                 <Loader />
               ) : (
-                <TopCollections collections={this.props.collectionState} />
+                <React.Fragment>
+                  <TopCollections collections={this.props.collectionState} />
+                </React.Fragment>
               )}
               <TopRes />
             </React.Fragment>

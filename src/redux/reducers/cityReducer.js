@@ -7,13 +7,14 @@ import {
   SET_LOCATION,
   BY_LOCATION,
   SET_USER_CITY,
+  SET_ESTABLISHMENTS,
 } from "../actionTypes";
 
 const initialState = {
   selectedCity: "",
   selectedCityId: null,
   loading: false,
-  sideBarstate: true,
+  sideBarstate: false,
   cuisines: null,
   currentLocation: null,
   byLocation: false,
@@ -50,6 +51,11 @@ const cityReducer = (state = initialState, action) => {
       return {
         ...state,
         categories: payload,
+      };
+    case SET_ESTABLISHMENTS:
+      return {
+        ...state,
+        establishments: payload,
       };
     case SET_LOCATION:
       return {

@@ -6,6 +6,7 @@ import CuisineSelector from "../components/Reusable/CuisineSelector";
 import CategorySelector from "../components/Reusable/CategorySelector";
 
 import "../Styles/SideBarToggleable.css";
+import EstablishmentSelector from "./Reusable/EstablishmentSelector";
 class SideBarToggleable extends Component {
   state = {
     isopen: false,
@@ -16,9 +17,13 @@ class SideBarToggleable extends Component {
     window.addEventListener("resize", this.handleResize);
   }
   componentDidUpdate(prevProps) {
-    prevProps.sideBarState
-      ? (document.querySelector("body").style.overflow = "auto")
-      : (document.querySelector("body").style.overflow = "hidden");
+    if (prevProps.sideBarState === this.props.sideBarState) {
+      return;
+    } else {
+      prevProps.sideBarState
+        ? (document.querySelector("body").style.overflow = "auto")
+        : (document.querySelector("body").style.overflow = "hidden");
+    }
   }
 
   handleResize = (e) => {
@@ -54,6 +59,7 @@ class SideBarToggleable extends Component {
               />
               <CuisineSelector />
               <CategorySelector />
+              <EstablishmentSelector />
               {this.widthRender()}
             </div>
             <div className="side-bar-extra" onClick={this.props.toggleSideBar}>

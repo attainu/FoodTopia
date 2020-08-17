@@ -21,7 +21,6 @@ export default class Loader extends Component {
       } else {
         this.setState({ number: this.state.number + 1 });
       }
-      console.log(this.state.number);
     }, 300);
   };
   loaderAnimation = () => {
