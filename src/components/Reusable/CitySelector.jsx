@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../Styles/SideBarToggleable.css";
+import { withRouter } from "react-router-dom";
 import {
   setLocation,
   fetchCityOnCoOrdinates,
@@ -26,6 +27,7 @@ class CitySelector extends Component {
     } else {
       this.props.fetchCity(e.target.innerHTML);
       this.props.toggleSideBar();
+      this.props.history.push("/home");
     }
   };
   handleSetCity = (e) => {
@@ -65,6 +67,7 @@ class CitySelector extends Component {
     });
   };
   render() {
+    console.log(this.props);
     return (
       <div style={{ width: "100%", color: "white" }}>
         <div className="side-bar-content-toggle">
@@ -148,4 +151,4 @@ export default connect(null, {
   fetchCityOnCoOrdinates,
   fetchCity,
   toggleSideBar,
-})(CitySelector);
+})(withRouter(CitySelector));
