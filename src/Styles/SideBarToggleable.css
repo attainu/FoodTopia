@@ -12,7 +12,7 @@
 }
 .side-bar-list-container::-webkit-scrollbar-thumb {
   width: 10px;
-  background-color: rgb(255, 217, 0);
+  background-color: black;
   height: 10px;
 }
 .side-bar-list-container::-webkit-scrollbar-track {
@@ -24,14 +24,14 @@
   overflow-x: hidden;
 }
 .side-bar-content-toggle-head {
-  color: white;
+  color: black;
   font-size: 1.2rem;
   padding: 10px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border-bottom: 1px solid rgb(255, 217, 0);
-  border-top: 1px solid rgb(255, 217, 0);
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
   position: relative;
 }
 .side-bar-toggle-list {
@@ -42,7 +42,7 @@
   position: relative;
 }
 .side-bar-toggle-list:hover {
-  background-color: rgb(255, 217, 0);
+  background-color: white;
   color: rgb(9, 2, 66);
 }
 .side-bar-city-input {
@@ -59,13 +59,13 @@
   margin-left: 10px;
 }
 .side-bar-city-input button {
-  background-color: rgb(9, 2, 66);
+  background-color: black;
   color: white;
   outline: none;
   border: none;
 }
 .side-bar-city-input i:hover {
-  color: rgb(255, 217, 0);
+  color: white;
 }
 .side-bar-toggle-list i {
   position: absolute;
@@ -80,7 +80,7 @@
   color: rgb(9, 2, 66);
 }
 .side-bar-content-toggle-head:hover {
-  color: rgb(255, 217, 0);
+  color: white;
 }
 @media only screen and (max-width: 768px) {
   .side-bar-content-toggle-head {
