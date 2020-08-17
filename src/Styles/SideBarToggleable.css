@@ -1,10 +1,17 @@
 .side-bar-content-toggle {
   text-align: center;
+  z-index: 99;
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* Internet Explorer */
   -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
   -webkit-user-select: none; /* Chrome, Safari, and Opera */
   -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
+}
+.side-bar {
+  z-index: 100;
+}
+.sidebar-toggle-container {
+  z-index: 99;
 }
 .side-bar-list-container::-webkit-scrollbar {
   width: 3px;

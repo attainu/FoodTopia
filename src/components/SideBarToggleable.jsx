@@ -43,7 +43,7 @@ class SideBarToggleable extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="sidebar-toggle-container">
         <button onClick={this.toggleOn}> toggle</button>
         {this.props.sideBarState ? (
           <section className="side-bar">
