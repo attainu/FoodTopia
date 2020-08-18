@@ -16,7 +16,7 @@ section {
 }
 .hamburger {
   font-size: 2.5rem;
-  margin-right: 10px;
+  margin-right: 20px;
   cursor: pointer;
 }
 .hamburger:hover {
@@ -26,7 +26,7 @@ section {
   height: 10vh;
   background-color: #6ebe3b;
   color: black;
-  font-weight: bold;
+  font-weight: bolder;
   position: fixed;
   top: 0px;
   width: 100vw;
