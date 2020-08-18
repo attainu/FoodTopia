@@ -16,7 +16,8 @@ import React, { Component } from "react";
 import "../Styles/SignUpPage.css";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
-
+import { connect } from "react-redux";
+import Loader from "../components/Reusable/Loader";
 class SignupPage extends Component {
   constructor(props) {
     super(props);
@@ -50,24 +51,30 @@ class SignupPage extends Component {
     const current = isLogginActive ? "Register" : "Login";
     const currentActive = isLogginActive ? "login" : "register";
     return (
-      <div className="App">
-        <div className="login">
-          <div className="container" ref={(ref) => (this.container = ref)}>
-            {isLogginActive && (
-              <Login containerRef={(ref) => (this.current = ref)} />
-            )}
-            {!isLogginActive && (
-              <Register containerRef={(ref) => (this.current = ref)} />
-            )}
-          </div>
-          <RightSide
-            current={current}
-            currentActive={currentActive}
-            containerRef={(ref) => (this.rightSide = ref)}
-            onClick={this.changeState.bind(this)}
-          />
+      <React.Fragment>
+        <div className="App">
+          {this.props.userDetails.loading ? (
+            <Loader />
+          ) : (
+            <div className="login">
+              <div className="container" ref={(ref) => (this.container = ref)}>
+                {isLogginActive && (
+                  <Login containerRef={(ref) => (this.current = ref)} />
+                )}
+                {!isLogginActive && (
+                  <Register containerRef={(ref) => (this.current = ref)} />
+                )}
+              </div>
+              <RightSide
+                current={current}
+                currentActive={currentActive}
+                containerRef={(ref) => (this.rightSide = ref)}
+                onClick={this.changeState.bind(this)}
+              />
+            </div>
+          )}
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 }
@@ -85,5 +92,10 @@ const RightSide = (props) => {
     </div>
   );
 };
+const mapStateToProps = (storeState) => {
+  return {
+    userDetails: storeState.userReducer,
+  };
+};
 
-export default SignupPage;
+export default connect(mapStateToProps, {})(SignupPage);
