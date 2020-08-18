@@ -13,8 +13,8 @@
 .base-container .header {
   font-size: 24px;
   font-family: "Open Sans", sans-serif;
-  color: #6ebe3b;
-  font-weight: bold;
+  color: black;
+  font-weight: bolder;
   margin-bottom: 13px;
 }
 

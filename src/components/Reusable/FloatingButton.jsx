@@ -9,7 +9,7 @@ const FloatingButton = () => {
         <Button
           tooltip="Home"
           styles={{
-            backgroundColor: "rgb(9, 2, 66)",
+            backgroundColor: "black",
             color: lightColors.white,
             width: "40px",
             height: "40px",
