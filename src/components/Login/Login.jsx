@@ -4,9 +4,9 @@ import React, { Component } from "react";
 import loginImg from "../../assets/food.jpg";
 import "../Login/Login.css";
 //import Responsive from 'react-responsive-decorator';
-import { GoogleLogin, GoogleLogout } from "react-google-login";
+// import { GoogleLogin, GoogleLogout } from "react-google-login";
 
-const CLIENT_ID = "<your Client ID>";
+// const CLIENT_ID = "<your Client ID>";
 
 class Login extends Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class Login extends Component {
             <img src={loginImg} />
           </div>
 
-          <div className="google-btn">
+          {/* <div className="google-btn">
             {this.state.isLogined ? (
               <GoogleLogout
                 clientId={CLIENT_ID}
@@ -80,23 +80,24 @@ class Login extends Component {
                 <br /> {this.state.accessToken}
               </h5>
             ) : null}
-          </div>
+          </div> */}
 
-          <div className="form">
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input type="email" name="email" placeholder="Email" />
+          <form onSubmit={this.handleLogin}>
+            <div className="form">
+              <div className="form-group">
+                <input type="email" name="email" required placeholder="Email" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="password">Password</label>
+                <input type="password" name="password" placeholder="Password" />
+              </div>
             </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input type="password" name="password" placeholder="Password" />
+            <div className="footer">
+              <button type="submit" className="btn">
+                Login
+              </button>
             </div>
-          </div>
-        </div>
-        <div className="footer">
-          <button type="button" className="btn">
-            Login
-          </button>
+          </form>
         </div>
       </div>
     );
