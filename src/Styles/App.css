@@ -86,8 +86,8 @@ section {
   margin-right: 10px;
   padding-left: 10px;
   height: 35px;
-  border: 1px solid #6ebe3b;
-  border-radius: 5px;
+  border: 1px solid black;
+  border-radius: 35px;
 }
 .search-bar-container .input:focus {
   border: none;
@@ -101,11 +101,12 @@ section {
   background: #6ebe3b;
   border-radius: 5px;
   color: white;
+  font-weight: bold;
 }
 .search-bar-container button:hover {
   border: 1px solid #6ebe3b;
-  background: white;
-  color: #6ebe3b;
+  background: black;
+  color: white;
 }
 .search-bar-container button i {
   margin-right: 5px;
