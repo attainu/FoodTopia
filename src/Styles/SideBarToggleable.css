@@ -84,6 +84,11 @@
 .side-bar-content-toggle-head i {
   position: absolute;
   right: 5px;
+  
+}
+
+.side-bar-content-toggle-head .city {
+  margin-right: 10px;
 }
 .side-bar-city-input input::placeholder {
   color: rgb(9, 2, 66);
