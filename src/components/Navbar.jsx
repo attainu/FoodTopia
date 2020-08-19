@@ -34,12 +34,12 @@ class MyNavbar extends Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink to="/favourites" className="ml-3">
-                  Favourites
+                 Favourites <i class="fa fa-heart-o" aria-hidden="true"></i> 
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink to="/profile" className="ml-3">
-                  Profile
+                  Profile <i class="fa fa-user" aria-hidden="true"></i>
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -49,11 +49,11 @@ class MyNavbar extends Component {
                     style={{ cursor: "pointer" }}
                     onClick={this.props.logOut}
                   >
-                    Log-out
+                    Log-out <div><i class="fa fa-sign-out" aria-hidden="true"></i></div>
                   </NavItem>
                 ) : (
                   <NavLink to="/login" className="ml-3">
-                    Log In
+                    Log In <i class="fa fa-sign-in" aria-hidden="true"></i>
                   </NavLink>
                 )}
               </NavItem>

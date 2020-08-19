@@ -76,8 +76,8 @@ class CitySelector extends Component {
             onClick={this.cityToggle}
             className="side-bar-content-toggle-head"
           >
-            Select City
-            {this.state.cityToggle ? (
+            Select City <div className="city"><i class="fa fa-building" aria-hidden="true"></i></div>  
+            {this.state.cityToggle ?( 
               <i className="fa fa-chevron-up"></i>
             ) : (
               <i className="fa fa-chevron-down"></i>

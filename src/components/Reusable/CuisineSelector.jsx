@@ -26,7 +26,7 @@ class CuisineSelector extends Component {
             onClick={this.cuisineToggle}
             className="side-bar-content-toggle-head"
           >
-            Select Cuisine
+            Select Cuisine <div className="cuisine"><i class="fa fa-cutlery" aria-hidden="true"></i></div> 
             {this.state.cuisineToggle ? (
               <i class="fa fa-chevron-up"></i>
             ) : (
