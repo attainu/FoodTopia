@@ -49,7 +49,7 @@ class MyNavbar extends Component {
                     style={{ cursor: "pointer" }}
                     onClick={this.props.logOut}
                   >
-                    Log-out
+                    Log-out <div><i class="fa fa-sign-out" aria-hidden="true"></i></div>
                   </NavItem>
                 ) : (
                   <NavLink to="/login" className="ml-3">
