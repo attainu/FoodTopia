@@ -17,9 +17,7 @@ const favouritesReducer = (state = initialState, action) => {
         cartItems: payload,
       };
     case LOADING_TOGGLE:
-      return {
-        loading: !state.loading,
-      };
+      return { ...state, loading: !state.loading };
     default:
       return {
         ...state,

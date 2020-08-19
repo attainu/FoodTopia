@@ -9,6 +9,10 @@ class Favourites extends Component {
     if (this.props.userDetails.user) {
       this.props.fetchFavourites(this.props.userDetails.user.uid);
     }
+    window.scrollTo(0, 0);
+  }
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
   }
   render() {
     return (
@@ -25,8 +29,11 @@ class Favourites extends Component {
             <Loader />
           ) : (
             <React.Fragment>
-              {!this.props.favDetails.favourites ? (
-                <React.Fragment></React.Fragment>
+              {!this.props.favDetails.favourites ||
+              this.props.favDetails.favourites.length === 0 ? (
+                <h2 style={{ textAlign: "center" }}>
+                  You Have not added and Restaurants yet
+                </h2>
               ) : (
                 <React.Fragment>
                   <h1>Showing Your Favourite Restaurants</h1>

@@ -68,7 +68,6 @@ class CitySelector extends Component {
     });
   };
   render() {
-    console.log(this.props);
     return (
       <div style={{ width: "100%", color: "white" }}>
         <div className="side-bar-content-toggle">
@@ -76,8 +75,11 @@ class CitySelector extends Component {
             onClick={this.cityToggle}
             className="side-bar-content-toggle-head"
           >
-            Select City <div className="city"><i class="fa fa-building" aria-hidden="true"></i></div>  
-            {this.state.cityToggle ?( 
+            Select City{" "}
+            <div className="city">
+              <i class="fa fa-building" aria-hidden="true"></i>
+            </div>
+            {this.state.cityToggle ? (
               <i className="fa fa-chevron-up"></i>
             ) : (
               <i className="fa fa-chevron-down"></i>

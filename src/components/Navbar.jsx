@@ -25,7 +25,7 @@ class MyNavbar extends Component {
       <div>
         <Navbar light expand="md" className="my-navbar pr-lg-5 ">
           <div className="hamburger" onClick={this.toggleSideBar}>
-            <i class="fa fa-bars"></i>
+            <i className="fa fa-bars"></i>
           </div>
           <Link to="/home" className="brand">
             FoodTopia
@@ -34,29 +34,30 @@ class MyNavbar extends Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink to="/favourites" className="ml-3">
-                 Favourites <i class="fa fa-heart-o" aria-hidden="true"></i> 
+                  Favourites{" "}
+                  <i className="fa fa-heart-o" aria-hidden="true"></i>
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink to="/profile" className="ml-3">
-                  Profile <i class="fa fa-user" aria-hidden="true"></i>
+                  Profile <i className="fa fa-user" aria-hidden="true"></i>
                 </NavLink>
               </NavItem>
-              <NavItem>
-                {this.props.userDetails.user ? (
-                  <NavItem
-                    className="ml-3"
-                    style={{ cursor: "pointer" }}
-                    onClick={this.props.logOut}
-                  >
-                    Log-out <div><i class="fa fa-sign-out" aria-hidden="true"></i></div>
-                  </NavItem>
-                ) : (
-                  <NavLink to="/login" className="ml-3">
-                    Log In <i class="fa fa-sign-in" aria-hidden="true"></i>
-                  </NavLink>
-                )}
-              </NavItem>
+              {this.props.userDetails.user ? (
+                <NavItem
+                  className="ml-3"
+                  style={{ cursor: "pointer" }}
+                  onClick={this.props.logOut}
+                >
+                  <div>
+                    <i className="fa fa-sign-out" aria-hidden="true"></i>
+                  </div>
+                </NavItem>
+              ) : (
+                <NavLink to="/login" className="ml-3">
+                  Log In <i className="fa fa-sign-in" aria-hidden="true"></i>
+                </NavLink>
+              )}
             </Nav>
           </Collapse>
         </Navbar>

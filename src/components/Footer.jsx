@@ -1,8 +1,10 @@
 import React from "react";
 import "../Styles/Footer.css";
 
-
 function Footer() {
+  const removeDefault = (e) => {
+    e.preventDefault();
+  };
   return (
     <footer className="my-footer">
       <div className="container">
@@ -11,10 +13,14 @@ function Footer() {
             <h5>About FoodTopia</h5>
             <ul>
               <li>
-                <a href="/#">About Us</a>
+                <a href="/#" onClick={removeDefault}>
+                  About Us
+                </a>
               </li>
               <li>
-                <a href="/#">Contact Us</a>
+                <a href="/#" onClick={removeDefault}>
+                  Contact Us
+                </a>
               </li>
             </ul>
           </div>
@@ -22,13 +28,19 @@ function Footer() {
             <h5>Support</h5>
             <ul>
               <li>
-                <a href="/#">FAQ</a>
+                <a href="/#" onClick={removeDefault}>
+                  FAQ
+                </a>
               </li>
               <li>
-                <a href="/#">Help Desk</a>
+                <a href="/#" onClick={removeDefault}>
+                  Help Desk
+                </a>
               </li>
               <li>
-                <a href="/#">Forums</a>
+                <a href="/#" onClick={removeDefault}>
+                  Forums
+                </a>
               </li>
             </ul>
           </div>
@@ -36,24 +48,43 @@ function Footer() {
             <h5>Download Apps</h5>
             <ul>
               <li>
-                <a href="/#">Google Play</a>
+                <a href="/#" onClick={removeDefault}>
+                  Google Play
+                </a>
               </li>
               <li>
-                <a href="/#">App Store</a>
+                <a href="/#" onClick={removeDefault}>
+                  App Store
+                </a>
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div className="social-networks text-center">
-        <a href="/#" className="twitter">
-          <i className="fab fa-twitter"></i>
+        <a
+          href="/#"
+          style={{ display: "inline" }}
+          className="twitter"
+          onClick={removeDefault}
+        >
+          <i className="fa fa-twitter"></i>
         </a>
-        <a href="/#" className="facebook">
-          <i className="fab fa-facebook-f"></i>
+        <a
+          href="/#"
+          style={{ display: "inline" }}
+          className="facebook"
+          onClick={removeDefault}
+        >
+          <i className="fa fa-facebook -f"></i>
         </a>
-        <a href="/#" className="google">
-          <i className="fab fa-google-plus"></i>
+        <a
+          href="/#"
+          style={{ display: "inline" }}
+          className="google"
+          onClick={removeDefault}
+        >
+          <i className="fa fa-google-plus"></i>
         </a>
       </div>
       <div className="text-center footer-copyright">

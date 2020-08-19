@@ -25,7 +25,7 @@ class SearchBar extends Component {
             onChange={this.handleChange}
           />
           <button type="submit">
-            <i class="fa fa-search" type="submit"></i>Search
+            <i className="fa fa-search" type="submit"></i>Search
           </button>
         </form>
       </div>

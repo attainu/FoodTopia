@@ -11,14 +11,16 @@ import {
   BY_LOCATION,
   SET_USER_CITY,
   SET_ESTABLISHMENTS,
+  SET_FAVOURITES,
 } from "../actionTypes";
 
 import { fetchTopCollections } from "./collectionsAction";
 import { fetchTopRes, fetchNearbyRes } from "./citiesTopResActions";
+import { fetchFavouritesInside } from "./favouritesAction";
 import config from "../../config";
 import axios from "axios";
 
-export const fetchCity = (cityName) => {
+export const fetchCity = (cityName, userId) => {
   const formattedQuery = cityName.replace(" ", "%20");
   return (dispatch) => {
     dispatch({ type: LOADING_TOGGLE });
@@ -32,6 +34,7 @@ export const fetchCity = (cityName) => {
         }
       )
       .then((res) => {
+        const homeRes = res;
         dispatch({ type: SET_CITY, payload: res.data.location_suggestions[0] });
         localStorage.setItem("foodtopia-city", cityName);
         fetchTopCollections(res.data.location_suggestions[0].id)
@@ -46,23 +49,34 @@ export const fetchCity = (cityName) => {
             console.error(err);
             dispatch({ type: LOADING_TOGGLE });
           });
+        if (userId) {
+          fetchFavouritesInside(userId).then((res) => {
+            dispatch({ type: SET_FAVOURITES, payload: res });
+            fetchTopRes(homeRes.data.location_suggestions[0].id).then((res) => {
+              dispatch({
+                type: SET_TOP_RES,
+                payload: res.best_rated_restaurant,
+              });
+              dispatch({
+                type: SET_NEARBY_RES_ID,
+                payload: res.nearby_res,
+              });
+            });
+          });
+        } else {
+          fetchTopRes(homeRes.data.location_suggestions[0].id).then((res) => {
+            dispatch({ type: SET_TOP_RES, payload: res.best_rated_restaurant });
+            dispatch({
+              type: SET_NEARBY_RES_ID,
+              payload: res.nearby_res,
+            });
+          });
+        }
         fetchCuisines(res.data.location_suggestions[0].id).then((res) => {
-          console.log(res);
           dispatch({ type: SET_CUISINES, payload: res.cuisines });
         });
         fetchEstablishments(res.data.location_suggestions[0].id).then((res) => {
           dispatch({ type: SET_ESTABLISHMENTS, payload: res.establishments });
-        });
-        fetchTopRes(res.data.location_suggestions[0].id).then((res) => {
-          dispatch({ type: SET_TOP_RES, payload: res.best_rated_restaurant });
-          dispatch({
-            type: SET_NEARBY_RES_ID,
-            payload: res.nearby_res,
-          });
-
-          // fetchNearbyRes(res.nearby_res).then((res) => {
-          //   console.log(res);
-          // });
         });
       })
       .catch((err) => {
@@ -137,8 +151,6 @@ export const setLocation = (lat, long) => {
 
 export const fetchCityOnCoOrdinates = (lat, long) => {
   return (dispatch) => {
-    console.log("fetching location");
-
     axios(
       `https://developers.zomato.com/api/v2.1/cities?lat=${lat}&lon=${long}`,
       {
@@ -148,7 +160,6 @@ export const fetchCityOnCoOrdinates = (lat, long) => {
       }
     )
       .then((res) => {
-        console.log(res.data.location_suggestions[0]);
         dispatch({
           type: SET_USER_CITY,
           payload: res.data.location_suggestions[0],

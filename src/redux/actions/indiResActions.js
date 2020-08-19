@@ -64,7 +64,7 @@ export const fetchMoreReviews = (resId, start) => {
         dispatch({ type: LOADING_TOGGLE });
       })
       .catch((err) => {
-        console.log("----------------------" + err.message);
+        console.error("----------------------" + err.message);
         dispatch({ type: LOADING_TOGGLE });
       });
   };
