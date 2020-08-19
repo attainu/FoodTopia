@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { userLogin } from "../../redux/actions/userActions";
 import { connect } from "react-redux";
-import { withRouter, Redirect } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 //import loginImg from "../../assets/login.svg";
 import loginImg from "../../assets/food.jpg";
 import "../Login/Login.css";
@@ -94,7 +94,7 @@ class Login extends Component {
         <div className="header">Login</div>
         <div className="content">
           <div className="image">
-            <img src={loginImg} />
+            <img src={loginImg} alt="theme" />
           </div>
 
           {/* <div className="google-btn">

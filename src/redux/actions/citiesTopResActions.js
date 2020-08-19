@@ -1,6 +1,5 @@
 import config from "../../config";
 import axios from "axios";
-import { SET_NEARBY_RES } from "../actionTypes";
 
 export const fetchTopRes = (city_id) => {
   return axios

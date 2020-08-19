@@ -15,7 +15,7 @@ import {
 } from "../actionTypes";
 
 import { fetchTopCollections } from "./collectionsAction";
-import { fetchTopRes, fetchNearbyRes } from "./citiesTopResActions";
+import { fetchTopRes } from "./citiesTopResActions";
 import { fetchFavouritesInside } from "./favouritesAction";
 import config from "../../config";
 import axios from "axios";

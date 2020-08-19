@@ -44,7 +44,7 @@ class Home extends Component {
     window.scrollTo(0, 0);
   }
   componentDidUpdate(prevProps) {
-    if (prevProps.cityState.byLocation != this.props.cityState.byLocation) {
+    if (prevProps.cityState.byLocation !== this.props.cityState.byLocation) {
       if (this.props.cityState.byLocation) {
         console.log("COMPONENT UPDATES");
         this.props.fetchCity(this.props.cityState.userCity);
@@ -61,7 +61,7 @@ class Home extends Component {
       }
     }
     if (
-      prevProps.cityState.selectedCityId != this.props.cityState.selectedCityId
+      prevProps.cityState.selectedCityId !== this.props.cityState.selectedCityId
     ) {
     }
     window.scrollTo(0, 0);

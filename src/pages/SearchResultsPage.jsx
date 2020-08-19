@@ -36,7 +36,7 @@ class SearchResultsPage extends Component {
   };
   componentDidUpdate(prevProps) {
     if (
-      this.props.match.params.searchQuery != prevProps.match.params.searchQuery
+      this.props.match.params.searchQuery !== prevProps.match.params.searchQuery
     ) {
       this.props.searchOnQuery(
         this.props.match.params.searchQuery,

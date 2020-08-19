@@ -16,7 +16,6 @@ import React, { Component } from "react";
 import "../Styles/SignUpPage.css";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
-import LoadingDots from "../components/Reusable/LoadingDots";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 class SignupPage extends Component {
