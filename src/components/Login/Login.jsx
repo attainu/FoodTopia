@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { userLogin } from "../../redux/actions/userActions";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { withRouter, Redirect } from "react-router-dom";
 //import loginImg from "../../assets/login.svg";
 import loginImg from "../../assets/food.jpg";
 import "../Login/Login.css";
+import LoadingDots from "../Reusable/LoadingDots";
 //import Responsive from 'react-responsive-decorator';
 // import { GoogleLogin, GoogleLogout } from "react-google-login";
 
@@ -19,6 +20,7 @@ class Login extends Component {
       accessToken: "",
       email: "",
       password: "",
+      length: true,
     };
 
     // this.login = this.login.bind(this);
@@ -35,9 +37,39 @@ class Login extends Component {
   //     }));
   //   }
   // }
+  renderLoginError = (status = this.props.userDetails.loginError) => {
+    if (
+      status === "The password is invalid or the user does not have a password."
+    ) {
+      return (
+        <small
+          style={{
+            color: "red",
+            fontWeight: "bold",
+            margintop: "0px",
+          }}
+        >
+          Wrong Password, Try again with right Password
+        </small>
+      );
+    } else if (status === "auth/user-not-found") {
+      return (
+        <small
+          style={{
+            color: "red",
+            fontWeight: "bold",
+            margintop: "0px",
+          }}
+        >
+          Email Not Found, Register with us and try again
+        </small>
+      );
+    }
+  };
   handleLogin = (e) => {
     e.preventDefault();
     this.props.userLogin(this.state.email, this.state.password);
+    this.setState({ email: "", password: "" });
   };
   logout(response) {
     this.setState((state) => ({
@@ -46,7 +78,7 @@ class Login extends Component {
     }));
   }
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value, length: true });
   };
   handleLoginFailure(response) {
     alert("Failed to log in");
@@ -113,10 +145,15 @@ class Login extends Component {
                 />
               </div>
             </div>
+            {this.renderLoginError()}
             <div className="footer">
-              <button type="submit" className="btn">
-                Login
-              </button>
+              {this.props.userDetails.loading ? (
+                <LoadingDots />
+              ) : (
+                <button type="submit" className="btn">
+                  Login
+                </button>
+              )}
             </div>
           </form>
         </div>
@@ -125,6 +162,8 @@ class Login extends Component {
   }
 }
 const mapStateToProps = (storeState) => {
-  return {};
+  return {
+    userDetails: storeState.userReducer,
+  };
 };
 export default connect(mapStateToProps, { userLogin })(withRouter(Login));
