@@ -19,6 +19,14 @@ h1 {
   text-align: center;
   margin-top: 10px;
 }
+.add-fav {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background: #6ebe3b;
+  border-radius: 5px;
+}
 .my-card {
   display: flex;
   flex-direction: column;
@@ -85,6 +93,15 @@ h1 {
 }
 .toprescard:hover {
   box-shadow: 0px 0px 20px #6ebe3b;
+}
+.toprescard-img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.toprescard-img-container img {
+  margin-bottom: 20px;
 }
 .toprescard-name-address {
   padding: 10px;

@@ -16,7 +16,7 @@ export const fetchCurrentRes = (resId) => {
       },
     })
       .then((res) => {
-        console.log(res.data);
+        console.log(JSON.stringify(res.data));
         dispatch({ type: SET_CURRENT_RES, payload: res.data });
         dispatch({ type: LOADING_TOGGLE });
 

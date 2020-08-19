@@ -8,7 +8,7 @@ const initialState = {
 
 const favouritesReducer = (state = initialState, action) => {
   const { type, payload } = action;
-  switch (state) {
+  switch (type) {
     case SET_FAVOURITES:
       return { ...state, favourites: payload };
     case SET_CART_ITEMS:
