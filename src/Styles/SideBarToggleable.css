@@ -87,9 +87,7 @@
   
 }
 
-.side-bar-content-toggle-head .city {
-  margin-right: 10px;
-}
+
 .side-bar-city-input input::placeholder {
   color: rgb(9, 2, 66);
 }
