@@ -16,7 +16,9 @@ import React, { Component } from "react";
 import "../Styles/SignUpPage.css";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register";
-
+import LoadingDots from "../components/Reusable/LoadingDots";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 class SignupPage extends Component {
   constructor(props) {
     super(props);
@@ -51,6 +53,11 @@ class SignupPage extends Component {
     const currentActive = isLogginActive ? "login" : "register";
     return (
       <div className="App">
+        {this.props.userDetails.user ? (
+          <Redirect to="/home" />
+        ) : (
+          <React.Fragment></React.Fragment>
+        )}
         <div className="login">
           <div className="container" ref={(ref) => (this.container = ref)}>
             {isLogginActive && (
@@ -85,5 +92,9 @@ const RightSide = (props) => {
     </div>
   );
 };
-
-export default SignupPage;
+const mapStateToProps = (storeState) => {
+  return {
+    userDetails: storeState.userReducer,
+  };
+};
+export default connect(mapStateToProps, null)(SignupPage);

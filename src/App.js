@@ -16,6 +16,7 @@ import SideBarToggleable from "./components/SideBarToggleable.jsx";
 import SearchBar from "./components/SearchBar";
 import SearchResultsPage from "./pages/SearchResultsPage.jsx";
 import TypeSearchPage from "./pages/TypeSearchPage.jsx";
+import Favourites from "./pages/Favourites";
 //
 
 class App extends Component {
@@ -50,6 +51,7 @@ class App extends Component {
           <Route path="/allCollections:cityName" component={AllCollections} />
           <Route path="/restaurant-:resId" component={IndiResPage} />
           <Route path="/search-:searchQuery" component={SearchResultsPage} />
+          <Route path="/favourites" component={Favourites} />
           <Route
             path="/type/:type/:typeName/:typeId"
             component={TypeSearchPage}

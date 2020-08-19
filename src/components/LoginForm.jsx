@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import fire from "../firebaseConfig";
+import { SIGNUP_STATUS } from "../redux/actionTypes";
 class LoginForm extends Component {
   state = {
     email: "",
@@ -48,7 +49,15 @@ class LoginForm extends Component {
           .set({ res_arr: [], cart: [] });
       })
       .catch((err) => {
-        console.error(err);
+        if (
+          err.message ===
+          "The email address is already in use by another account."
+        ) {
+          dispatch({
+            type: SIGNUP_STATUS,
+            payload: "The email address is already in use by another account.",
+          });
+        }
       });
   };
 
