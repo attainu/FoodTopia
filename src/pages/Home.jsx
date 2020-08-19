@@ -8,39 +8,28 @@ import {
 } from "../redux/actions/cityActions";
 import { fetchTopCollections } from "../redux/actions/collectionsAction";
 import { fetchNearbyRes } from "../redux/actions/citiesTopResActions";
-import { fetchFavourites } from "../redux/actions/favouritesAction";
 import TopCollections from "../components/TopCollections";
 import TopRes from "../components/TopRes";
 import Loader from "../components/Reusable/Loader";
 // import ImageAndWelcome from "../components/ImageAndWelcome";
 import "../Styles/App.css";
 import "../Styles/HomePage.css";
-
 class Home extends Component {
   componentDidMount() {
-    if (this.props.userDetails.user) {
-      if (localStorage.getItem("foodtopia-city")) {
-        this.props.fetchCity(
-          localStorage.getItem("foodtopia-city"),
-          this.props.userDetails.user.uid
-        );
-      } else {
-        if (!this.props.cityState.selectedCityId) {
-          if (this.props.cityState.selectedCity === "") {
-            this.props.fetchCity("bengaluru", this.props.userDetails.user.uid);
-          } else {
-            this.props.fetchCity(
-              this.props.cityState.selectedCity,
-              this.props.userDetails.user.uid
-            );
-          }
+    if (localStorage.getItem("foodtopia-city")) {
+      this.props.fetchCity(localStorage.getItem("foodtopia-city"));
+    } else {
+      if (!this.props.cityState.selectedCityId) {
+        if (this.props.cityState.selectedCity === "") {
+          this.props.fetchCity("bengaluru");
         } else {
-          return;
+          this.props.fetchCity(this.props.cityState.selectedCity);
         }
+      } else {
+        return;
       }
-      this.props.fetchCategories();
     }
-
+    this.props.fetchCategories();
     window.scrollTo(0, 0);
   }
   componentDidUpdate(prevProps) {
@@ -94,16 +83,13 @@ class Home extends Component {
     );
   }
 }
-
 const mapStateToProps = (storeState) => {
   return {
     cityState: storeState.cityReducer,
     collectionState: storeState.collectionsReducer.topCollections,
     nearbyResId: storeState.citiesTopResReducer.nearbyResIds,
-    userDetails: storeState.userReducer,
   };
 };
-
 export default connect(mapStateToProps, {
   fetchCity,
   fetchTopCollections,
@@ -111,5 +97,23 @@ export default connect(mapStateToProps, {
   fetchCategories,
   setLocation,
   fetchCityOnCoOrdinates,
-  fetchFavourites,
 })(Home);
+
+// const mapStateToProps = (storeState) => {
+//   return {
+//     cityState: storeState.cityReducer,
+//     collectionState: storeState.collectionsReducer.topCollections,
+//     nearbyResId: storeState.citiesTopResReducer.nearbyResIds,
+//     userDetails: storeState.userReducer,
+//   };
+// };
+
+// export default connect(mapStateToProps, {
+//   fetchCity,
+//   fetchTopCollections,
+//   fetchNearbyRes,
+//   fetchCategories,
+//   setLocation,
+//   fetchCityOnCoOrdinates,
+//   fetchFavourites,
+// })(Home);

@@ -46,7 +46,6 @@ class SearchResultsPage extends Component {
     window.scrollTo(0, 0);
   }
   render() {
-    console.log(this.props);
     return (
       <React.Fragment>
         <section className="home-section">

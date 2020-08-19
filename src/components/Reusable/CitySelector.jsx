@@ -77,7 +77,7 @@ class CitySelector extends Component {
           >
             Select City{" "}
             <div className="city">
-              <i class="fa fa-building" aria-hidden="true"></i>
+              <i className="fa fa-building" aria-hidden="true"></i>
             </div>
             {this.state.cityToggle ? (
               <i className="fa fa-chevron-up"></i>
@@ -99,7 +99,7 @@ class CitySelector extends Component {
                   value={this.state.cityName}
                 ></input>
                 <button type="submit">
-                  <i class="fa fa-search" type="submit"></i>
+                  <i className="fa fa-search" type="submit"></i>
                 </button>
               </form>
               {this.props.byLocation ? (
@@ -111,7 +111,7 @@ class CitySelector extends Component {
                   onClick={this.setCityByLocation}
                   className="side-bar-toggle-list"
                 >
-                  <i class="fa fa-street-view"></i>
+                  <i className="fa fa-street-view"></i>
                   Detect Your Location Or
                 </div>
               )}
