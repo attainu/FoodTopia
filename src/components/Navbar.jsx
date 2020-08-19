@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
+import { Collapse, Navbar, Nav, NavItem } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { toggleSideBar } from "../redux/actions/cityActions";

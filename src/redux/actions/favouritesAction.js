@@ -96,7 +96,7 @@ export const deleteFromFav = (userID, restaurantId) => {
           formattedArr.push(JSON.parse(res));
         }
         const filteredArr = formattedArr.filter((res) => {
-          return res.id != restaurantId;
+          return res.id !== restaurantId;
         });
         const newFilteredArr = [];
         for (let res of filteredArr) {
