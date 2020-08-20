@@ -36,7 +36,7 @@ class SearchResultsPage extends Component {
   };
   componentDidUpdate(prevProps) {
     if (
-      this.props.match.params.searchQuery != prevProps.match.params.searchQuery
+      this.props.match.params.searchQuery !== prevProps.match.params.searchQuery
     ) {
       this.props.searchOnQuery(
         this.props.match.params.searchQuery,
@@ -46,7 +46,6 @@ class SearchResultsPage extends Component {
     window.scrollTo(0, 0);
   }
   render() {
-    console.log(this.props);
     return (
       <React.Fragment>
         <section className="home-section">

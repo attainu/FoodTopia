@@ -41,14 +41,9 @@ class SideBarToggleable extends Component {
       return (
         <React.Fragment>
           <div className="side-bar-content-toggle-head">
-            <Link to="/profile">Profile</Link>
-          </div>
-          <div className="side-bar-content-toggle-head">
             <Link to="/favourites">Favourites</Link>
           </div>
-          <div className="side-bar-content-toggle-head">
-            <Link to="/cart">Cart</Link>
-          </div>
+
           {this.props.userDetails.user ? (
             <div
               className="side-bar-content-toggle-head"

@@ -1,9 +1,15 @@
-import { SET_FAVOURITES, SET_CART_ITEMS, LOADING_TOGGLE } from "../actionTypes";
+import {
+  SET_FAVOURITES,
+  SET_CART_ITEMS,
+  LOADING_TOGGLE,
+  LOADING_DOTS_TOGGLE,
+} from "../actionTypes";
 
 const initialState = {
   favourites: null,
   loading: false,
   cartItems: null,
+  loadingDots: false,
 };
 
 const favouritesReducer = (state = initialState, action) => {
@@ -15,6 +21,11 @@ const favouritesReducer = (state = initialState, action) => {
       return {
         ...state,
         cartItems: payload,
+      };
+    case LOADING_DOTS_TOGGLE:
+      return {
+        ...state,
+        loadingDots: !state.loadingDots,
       };
     case LOADING_TOGGLE:
       return { ...state, loading: !state.loading };

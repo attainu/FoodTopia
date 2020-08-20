@@ -6,65 +6,18 @@ import {
   deleteFromFav,
   fetchFavourites,
 } from "../../redux/actions/favouritesAction";
+import LoadingDots from "../Reusable/LoadingDots";
 import { Link } from "react-router-dom";
 import "../../Styles/HomePage.css";
 class TopResCard extends Component {
   componentDidMount() {}
-  checkIfInFav = (userDetails, id) => {
-    if (userDetails.user) {
-      if (this.props.favourites) {
-        const fav = this.props.favourites;
-        let i;
-        for (i = 0; i < fav.length; i++) {
-          if (fav[i].id === id) {
-            return (
-              <button
-                className="add-fav"
-                onClick={this.deleteFav}
-                resid={this.props.details.id}
-              >
-                Delete from Favourites
-              </button>
-            );
-          }
-        }
-        return (
-          <button
-            className="add-fav"
-            onClick={this.addFav}
-            resid={JSON.stringify(this.props.details)}
-          >
-            Add to Favourites
-          </button>
-        );
-      } else {
-        return (
-          <button
-            className="add-fav"
-            onClick={this.addFav}
-            resid={JSON.stringify(this.props.details)}
-          >
-            Add to Favourites
-          </button>
-        );
-      }
-    } else {
-      return (
-        <button
-          className="add-fav"
-          onClick={this.addFav}
-          resid={JSON.stringify(this.props.details)}
-        >
-          Add to Favourites
-        </button>
-      );
-    }
-  };
+
   addFav = (e) => {
-    if (this.props.userDetails) {
+    if (this.props.userDetails.user) {
       this.props.addToFav(
         this.props.userDetails.user.uid,
-        e.target.getAttribute("resid")
+        e.target.getAttribute("resid"),
+        this.props.cityDetails.selectedCityId
       );
     } else {
       alert("Please login, to save your Favourites");
@@ -73,43 +26,42 @@ class TopResCard extends Component {
   deleteFav = (e) => {
     this.props.deleteFromFav(
       this.props.userDetails.user.uid,
-      e.target.getAttribute("resid")
+      e.target.getAttribute("resid"),
+      this.props.cityDetails.selectedCityId
     );
   };
   render() {
+    console.log(this.props.favBtn);
     return (
       <>
         <div className="toprescard">
           <div className="toprescard-img-container">
             <img src={this.props.details.thumb} alt="Looks Delicious"></img>
-            {this.favBtn === null ? (
-              <React.Fragment>
-                {this.checkIfInFav(
-                  this.props.userDetails,
-                  this.props.details.id
-                )}
-              </React.Fragment>
-            ) : (
-              <React.Fragment>
-                {this.props.favBtn ? (
-                  <button
-                    className="add-fav"
-                    onClick={this.deleteFav}
-                    resid={this.props.details.id}
-                  >
-                    Delete from Favourites
-                  </button>
-                ) : (
-                  <button
-                    className="add-fav"
-                    onClick={this.addFav}
-                    resid={JSON.stringify(this.props.details)}
-                  >
-                    Add to Favourites
-                  </button>
-                )}
-              </React.Fragment>
-            )}
+            <React.Fragment>
+              {this.props.favDetails.loadingDots ? (
+                <LoadingDots />
+              ) : (
+                <React.Fragment>
+                  {this.props.favBtn ? (
+                    <button
+                      className="add-fav"
+                      onClick={this.deleteFav}
+                      resid={this.props.details.id}
+                    >
+                      Delete from Favourites
+                    </button>
+                  ) : (
+                    <button
+                      className="add-fav"
+                      onClick={this.addFav}
+                      resid={JSON.stringify(this.props.details)}
+                    >
+                      Add to Favourites
+                    </button>
+                  )}
+                </React.Fragment>
+              )}
+            </React.Fragment>
           </div>
           <div className="toprescard-details">
             <div className="toprescard-ratings-container">
@@ -159,6 +111,7 @@ const mapStateToProps = (storeState) => {
   return {
     userDetails: storeState.userReducer,
     favDetails: storeState.favouritesReducer,
+    cityDetails: storeState.cityReducer,
   };
 };
 export default connect(mapStateToProps, {

@@ -10,7 +10,10 @@ import SmallLoader from "../components/Reusable/SmallLoader";
 import config from "../config";
 class IndiResPage extends Component {
   componentDidMount() {
-    this.props.fetchCurrentRes(this.props.match.params.resId);
+    this.props.fetchCurrentRes(
+      this.props.match.params.resId,
+      this.props.userDetails.user.uid
+    );
     window.scrollTo(0, 0);
     // this.props.addToFav(this.props.userDetails.user.uid, { hi: "HI" });
   }
@@ -18,6 +21,7 @@ class IndiResPage extends Component {
     var top = document.querySelector("#header");
     top.scrollIntoView();
   };
+
   render() {
     return (
       <section id="header">

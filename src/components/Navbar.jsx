@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
+import { Collapse, Navbar, Nav, NavItem } from "reactstrap";
 import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { toggleSideBar } from "../redux/actions/cityActions";
@@ -38,11 +38,7 @@ class MyNavbar extends Component {
                   <i className="fa fa-heart-o" aria-hidden="true"></i>
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink to="/profile" className="ml-3">
-                  Profile <i className="fa fa-user" aria-hidden="true"></i>
-                </NavLink>
-              </NavItem>
+
               {this.props.userDetails.user ? (
                 <NavItem
                   className="ml-3"
@@ -50,6 +46,7 @@ class MyNavbar extends Component {
                   onClick={this.props.logOut}
                 >
                   <div>
+                    Log-Out{" "}
                     <i className="fa fa-sign-out" aria-hidden="true"></i>
                   </div>
                 </NavItem>

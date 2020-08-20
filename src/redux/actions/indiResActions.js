@@ -6,7 +6,8 @@ import {
   RESET_RES,
 } from "../actionTypes";
 import axios from "axios";
-export const fetchCurrentRes = (resId) => {
+import { fetchFavouritesInside } from "./favouritesAction";
+export const fetchCurrentRes = (resId, userId) => {
   return (dispatch) => {
     dispatch({ type: RESET_RES, payload: null });
     dispatch({ type: LOADING_TOGGLE });
@@ -16,8 +17,42 @@ export const fetchCurrentRes = (resId) => {
       },
     })
       .then((res) => {
-        console.log(JSON.stringify(res.data));
-        dispatch({ type: SET_CURRENT_RES, payload: res.data });
+        const currentRes = res.data;
+        if (userId) {
+          fetchFavouritesInside(userId).then((res) => {
+            if (res.length === 0) {
+              dispatch({
+                type: SET_CURRENT_RES,
+                payload: { ...currentRes, isInFav: false },
+              });
+            }
+            let count = 0;
+            for (let each of res) {
+              if (each.id === currentRes.id) {
+                count = +1;
+              } else {
+                count = 0;
+              }
+              if (count > 0) {
+                dispatch({
+                  type: SET_CURRENT_RES,
+                  payload: { ...currentRes, isInFav: true },
+                });
+              } else {
+                dispatch({
+                  type: SET_CURRENT_RES,
+                  payload: { ...currentRes, isInFav: false },
+                });
+                count = 0;
+              }
+            }
+          });
+        } else {
+          dispatch({
+            type: SET_CURRENT_RES,
+            payload: { ...currentRes, isInFav: false },
+          });
+        }
         dispatch({ type: LOADING_TOGGLE });
 
         fetchReviews(resId).then((res) => {

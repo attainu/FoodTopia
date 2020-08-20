@@ -26,7 +26,7 @@ class CategorySelector extends Component {
             onClick={this.categoryToggle}
             className="side-bar-content-toggle-head"
           >
-            Select Category <div className="category"><i class="fa fa-th" aria-hidden="true"></i></div>
+            Select Category <div className="category"></div>
             {this.state.categoryToggle ? (
               <i class="fa fa-chevron-up"></i>
             ) : (

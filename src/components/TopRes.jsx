@@ -20,26 +20,6 @@ class TopRes extends Component {
     top.scrollIntoView();
   };
 
-  checkIfInFav = (id) => {
-    console.log("checkIfinFav");
-    if (this.props.userDetails.user) {
-      if (this.props.favourites) {
-        const fav = this.props.favourites;
-        let i;
-        for (i = 0; i < fav.length; i++) {
-          if (fav[i].id === id) {
-            return true;
-          }
-        }
-
-        return false;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
-    }
-  };
   render() {
     return (
       <div>
@@ -60,6 +40,7 @@ class TopRes extends Component {
                       <TopResCard
                         key={res.restaurant.id}
                         details={res.restaurant}
+                        favBtn={res.isInFav}
                       />
                     );
                   })}

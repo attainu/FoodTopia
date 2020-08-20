@@ -6,9 +6,6 @@ import { signUpUser, signUpStatus } from "../../redux/actions/userActions";
 import "../Login/Login.css";
 
 class Register extends Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
     username: "",
     password: "",
@@ -20,7 +17,7 @@ class Register extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.password.length >= 8) {
-      if (this.state.password != this.state.reEnterPassword) {
+      if (this.state.password !== this.state.reEnterPassword) {
         this.setState({ match: false });
         return;
       } else {
@@ -84,7 +81,7 @@ class Register extends Component {
         <div className="header">Register</div>
         <div className="content">
           <div className="image">
-            <img src={loginImg} />
+            <img src={loginImg} alt="Food Theme" />
           </div>
           <form onSubmit={this.handleSubmit}>
             <div className="form">

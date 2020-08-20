@@ -30,7 +30,7 @@ class TypeSearchPage extends Component {
     window.scrollTo(0, 0);
   };
   componentDidUpdate(prevProps) {
-    if (this.props.match.url != prevProps.match.url) {
+    if (this.props.match.url !== prevProps.match.url) {
       this.props.typeSearch(
         this.props.match.params.type,
         this.props.cityDetails.selectedCityId,
@@ -41,7 +41,6 @@ class TypeSearchPage extends Component {
     window.scrollTo(0, 0);
   }
   render() {
-    console.log(this.props);
     return (
       <React.Fragment>
         <section className="home-section">

@@ -15,7 +15,7 @@ import {
 } from "../actionTypes";
 
 import { fetchTopCollections } from "./collectionsAction";
-import { fetchTopRes, fetchNearbyRes } from "./citiesTopResActions";
+import { fetchTopRes } from "./citiesTopResActions";
 import { fetchFavouritesInside } from "./favouritesAction";
 import config from "../../config";
 import axios from "axios";
@@ -43,7 +43,6 @@ export const fetchCity = (cityName, userId) => {
               type: SET_COLLECTIONS,
               payload: res.data.collections,
             });
-            dispatch({ type: LOADING_TOGGLE });
           })
           .catch((err) => {
             console.error(err);
@@ -51,15 +50,28 @@ export const fetchCity = (cityName, userId) => {
           });
         if (userId) {
           fetchFavouritesInside(userId).then((res) => {
+            const favResArr = res;
             dispatch({ type: SET_FAVOURITES, payload: res });
             fetchTopRes(homeRes.data.location_suggestions[0].id).then((res) => {
+              const topResArr = res.best_rated_restaurant;
+              const topResArrNew = [];
+              for (let res of topResArr) {
+                const count = 0;
+                for (let favRes of favResArr) {
+                  if (res.restaurant.id === favRes.id) {
+                    count++;
+                  }
+                }
+                if (count !== 0) {
+                  topResArrNew.push({ ...res, isInFav: true });
+                  count = 0;
+                } else {
+                  topResArrNew.push({ ...res, isInFav: false });
+                }
+              }
               dispatch({
                 type: SET_TOP_RES,
-                payload: res.best_rated_restaurant,
-              });
-              dispatch({
-                type: SET_NEARBY_RES_ID,
-                payload: res.nearby_res,
+                payload: topResArrNew,
               });
             });
           });
@@ -78,6 +90,7 @@ export const fetchCity = (cityName, userId) => {
         fetchEstablishments(res.data.location_suggestions[0].id).then((res) => {
           dispatch({ type: SET_ESTABLISHMENTS, payload: res.establishments });
         });
+        dispatch({ type: LOADING_TOGGLE });
       })
       .catch((err) => {
         console.error(err);
