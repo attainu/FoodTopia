@@ -10,10 +10,14 @@ import SmallLoader from "../components/Reusable/SmallLoader";
 import config from "../config";
 class IndiResPage extends Component {
   componentDidMount() {
-    this.props.fetchCurrentRes(
-      this.props.match.params.resId,
-      this.props.userDetails.user.uid
-    );
+    if (this.props.userDetails.user) {
+      this.props.fetchCurrentRes(
+        this.props.match.params.resId,
+        this.props.userDetails.user.uid
+      );
+    } else {
+      this.props.fetchCurrentRes(this.props.match.params.resId);
+    }
     window.scrollTo(0, 0);
     // this.props.addToFav(this.props.userDetails.user.uid, { hi: "HI" });
   }
