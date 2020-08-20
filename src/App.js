@@ -41,18 +41,28 @@ class App extends Component {
         <FloatingButton />
         {this.searchConditionalRender()}
         <Switch>
-          <Route path="/home" component={Home} />
-          <Route path="/profile" />
-          <Route path="/login" component={SignupPage} />
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/profile" />
+          <Route exact path="/login" component={SignupPage} />
           <Route
+            exact
             path="/collection-:collectionId"
             component={IndividualCollectionPage}
           />
-          <Route path="/allCollections:cityName" component={AllCollections} />
-          <Route path="/restaurant-:resId" component={IndiResPage} />
-          <Route path="/search-:searchQuery" component={SearchResultsPage} />
-          <Route path="/favourites" component={Favourites} />
           <Route
+            exact
+            path="/allCollections:cityName"
+            component={AllCollections}
+          />
+          <Route exact path="/restaurant-:resId" component={IndiResPage} />
+          <Route
+            exact
+            path="/search-:searchQuery"
+            component={SearchResultsPage}
+          />
+          <Route exact path="/favourites" component={Favourites} />
+          <Route
+            exact
             path="/type/:type/:typeName/:typeId"
             component={TypeSearchPage}
           />

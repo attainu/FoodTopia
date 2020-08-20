@@ -39,6 +39,21 @@ class Home extends Component {
         }
       }
       this.props.fetchCategories();
+    } else {
+      if (localStorage.getItem("foodtopia-city")) {
+        this.props.fetchCity(localStorage.getItem("foodtopia-city"));
+      } else {
+        if (!this.props.cityState.selectedCityId) {
+          if (this.props.cityState.selectedCity === "") {
+            this.props.fetchCity("bengaluru");
+          } else {
+            this.props.fetchCity(this.props.cityState.selectedCity);
+          }
+        } else {
+          return;
+        }
+      }
+      this.props.fetchCategories();
     }
 
     window.scrollTo(0, 0);
