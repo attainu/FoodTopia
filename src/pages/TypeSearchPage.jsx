@@ -58,36 +58,51 @@ class TypeSearchPage extends Component {
               {!this.props.currentCollection.typeSearchRes ? (
                 <React.Fragment></React.Fragment>
               ) : (
-                <React.Fragment>
-                  {this.props.currentCollection.typeSearchRes.results_start ===
-                  0 ? (
-                    <React.Fragment></React.Fragment>
-                  ) : (
-                    <div className="view-more-btn" onClick={this.viewPrevious}>
-                      View Previous Restaurants
-                    </div>
-                  )}
-                  <div className="my-cards-container">
-                    {this.props.currentCollection.typeSearchRes.restaurants.map(
-                      (restaurant) => {
-                        return (
-                          <TopResCard
-                            key={restaurant.restaurant.id}
-                            details={restaurant.restaurant}
-                          />
-                        );
-                      }
-                    )}
-                  </div>
+                <>
                   {this.props.currentCollection.typeSearchRes.restaurants
-                    .length === 20 ? (
-                    <div className="view-more-btn" onClick={this.viewMore}>
-                      View More Restaurants
-                    </div>
+                    .length === 0 ? (
+                    <center>
+                      <h5>
+                        Couldn't find any restaurants related to this category,
+                        please try some other category
+                      </h5>
+                    </center>
                   ) : (
-                    <React.Fragment></React.Fragment>
+                    <React.Fragment>
+                      {this.props.currentCollection.typeSearchRes
+                        .results_start === 0 ? (
+                        <React.Fragment></React.Fragment>
+                      ) : (
+                        <div
+                          className="view-more-btn"
+                          onClick={this.viewPrevious}
+                        >
+                          View Previous Restaurants
+                        </div>
+                      )}
+                      <div className="my-cards-container">
+                        {this.props.currentCollection.typeSearchRes.restaurants.map(
+                          (restaurant) => {
+                            return (
+                              <TopResCard
+                                key={restaurant.restaurant.id}
+                                details={restaurant.restaurant}
+                              />
+                            );
+                          }
+                        )}
+                      </div>
+                      {this.props.currentCollection.typeSearchRes.restaurants
+                        .length === 20 ? (
+                        <div className="view-more-btn" onClick={this.viewMore}>
+                          View More Restaurants
+                        </div>
+                      ) : (
+                        <React.Fragment></React.Fragment>
+                      )}
+                    </React.Fragment>
                   )}
-                </React.Fragment>
+                </>
               )}
             </React.Fragment>
           )}
