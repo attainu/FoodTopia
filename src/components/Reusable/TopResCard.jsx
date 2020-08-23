@@ -31,7 +31,6 @@ class TopResCard extends Component {
     );
   };
   render() {
-    console.log(this.props.favBtn);
     return (
       <>
         <div className="toprescard">

@@ -65,6 +65,7 @@ class CitySelector extends Component {
         position.coords.longitude
       );
       this.props.toggleSideBar();
+      this.props.history.push("/home");
     });
   };
   render() {

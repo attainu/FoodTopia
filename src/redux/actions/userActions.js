@@ -84,8 +84,11 @@ export const signUpStatus = () => {
 
 export const logOut = () => {
   return (dispatch) => {
+    dispatch({ type: LOADING_TOGGLE });
     dispatch({ type: LOG_OUT_USER });
     localStorage.removeItem("foodtopia-user");
-    window.location.reload();
+    setTimeout(() => {
+      dispatch({ type: LOADING_TOGGLE });
+    }, 2000);
   };
 };

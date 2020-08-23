@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Collapse, Navbar, Nav, NavItem } from "reactstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { toggleSideBar } from "../redux/actions/cityActions";
 import { logOut } from "../redux/actions/userActions";
@@ -13,14 +13,41 @@ class MyNavbar extends Component {
   state = {
     isOpen: false,
   };
-
+  logOut = () => {
+    this.props.logOut();
+    this.props.history.push("/");
+    window.location.reload();
+  };
   toggle = () => {
     this.setState({ isOpen: !this.state.isOpen });
   };
   toggleSideBar = () => {
     this.props.toggleSideBar();
   };
+
+  renderConditionalButton = () => {
+    if (this.props.userDetails.user) {
+      return (
+        <NavItem
+          className="ml-3"
+          style={{ cursor: "pointer" }}
+          onClick={this.logOut}
+        >
+          <div>
+            Log-Out <i className="fa fa-sign-out" aria-hidden="true"></i>
+          </div>
+        </NavItem>
+      );
+    } else {
+      return (
+        <NavLink to="/login" className="ml-3">
+          Log In <i className="fa fa-sign-in" aria-hidden="true"></i>
+        </NavLink>
+      );
+    }
+  };
   render() {
+    console.log(this.props);
     return (
       <div>
         <Navbar light expand="md" className="my-navbar pr-lg-5 ">
@@ -38,23 +65,7 @@ class MyNavbar extends Component {
                   <i className="fa fa-heart-o" aria-hidden="true"></i>
                 </NavLink>
               </NavItem>
-
-              {this.props.userDetails.user ? (
-                <NavItem
-                  className="ml-3"
-                  style={{ cursor: "pointer" }}
-                  onClick={this.props.logOut}
-                >
-                  <div>
-                    Log-Out{" "}
-                    <i className="fa fa-sign-out" aria-hidden="true"></i>
-                  </div>
-                </NavItem>
-              ) : (
-                <NavLink to="/login" className="ml-3">
-                  Log In <i className="fa fa-sign-in" aria-hidden="true"></i>
-                </NavLink>
-              )}
+              {this.renderConditionalButton()}
             </Nav>
           </Collapse>
         </Navbar>
@@ -67,4 +78,6 @@ const mapStateToProps = (storeState) => {
     userDetails: storeState.userReducer,
   };
 };
-export default connect(mapStateToProps, { toggleSideBar, logOut })(MyNavbar);
+export default connect(mapStateToProps, { toggleSideBar, logOut })(
+  withRouter(MyNavbar)
+);

@@ -9,7 +9,6 @@ class SearchResultsPage extends Component {
       this.props.currentCollection.currentQuery ===
       this.props.match.params.searchQuery
     ) {
-      return;
     } else {
       this.props.searchOnQuery(
         this.props.match.params.searchQuery,
@@ -64,33 +63,48 @@ class SearchResultsPage extends Component {
                 <React.Fragment></React.Fragment>
               ) : (
                 <React.Fragment>
-                  {this.props.currentCollection.searchResult.results_start ===
-                  0 ? (
-                    <React.Fragment></React.Fragment>
-                  ) : (
-                    <div className="view-more-btn" onClick={this.viewPrevious}>
-                      View Previous Restaurants
-                    </div>
-                  )}
-                  <div className="my-cards-container">
-                    {this.props.currentCollection.searchResult.restaurants.map(
-                      (restaurant) => {
-                        return (
-                          <TopResCard
-                            key={restaurant.restaurant.id}
-                            details={restaurant.restaurant}
-                          />
-                        );
-                      }
-                    )}
-                  </div>
                   {this.props.currentCollection.searchResult.restaurants
-                    .length === 20 ? (
-                    <div className="view-more-btn" onClick={this.viewMore}>
-                      View More Restaurants
-                    </div>
+                    .length === 0 ? (
+                    <center>
+                      <h5>
+                        We couldnt find any Results related your query, Please
+                        search with correct terms{" "}
+                      </h5>
+                    </center>
                   ) : (
-                    <React.Fragment></React.Fragment>
+                    <React.Fragment>
+                      {this.props.currentCollection.searchResult
+                        .results_start === 0 ? (
+                        <React.Fragment></React.Fragment>
+                      ) : (
+                        <div
+                          className="view-more-btn"
+                          onClick={this.viewPrevious}
+                        >
+                          View Previous Restaurants
+                        </div>
+                      )}
+                      <div className="my-cards-container">
+                        {this.props.currentCollection.searchResult.restaurants.map(
+                          (restaurant) => {
+                            return (
+                              <TopResCard
+                                key={restaurant.restaurant.id}
+                                details={restaurant.restaurant}
+                              />
+                            );
+                          }
+                        )}
+                      </div>
+                      {this.props.currentCollection.searchResult.restaurants
+                        .length === 20 ? (
+                        <div className="view-more-btn" onClick={this.viewMore}>
+                          View More Restaurants
+                        </div>
+                      ) : (
+                        <React.Fragment></React.Fragment>
+                      )}
+                    </React.Fragment>
                   )}
                 </React.Fragment>
               )}
